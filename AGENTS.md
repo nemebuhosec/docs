@@ -29,5 +29,9 @@
 
 ## Content boundaries
 
+- `ayuda/` y la pestaña «Ayuda» de `docs.json` se generan desde la ayuda in-app de la consola
+  (glosario y preguntas frecuentes; decisión D-6). No se editan a mano: se corrige la ayuda en
+  `vigia-console/src/app/core/help/` y se regenera con `npm run help:export && npm run help:mintlify`.
+
 <!-- Define what should and shouldn't be documented -->
 <!-- Example: Don't document internal admin features -->
