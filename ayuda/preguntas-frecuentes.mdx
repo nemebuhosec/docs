@@ -1,0 +1,1120 @@
+---
+title: "Preguntas frecuentes"
+description: "Cómo funciona Vigia, recorrido por recorrido."
+---
+
+{/* Generado por vigia-console/scripts/help-to-mintlify.mjs desde la ayuda de la consola. No editar a mano. */}
+
+Preguntas que valen para cualquier persona que usa Vigia, ordenadas por el recorrido de una implementación.
+
+## Primeros pasos
+
+### ¿Por qué el menú y los textos cambian cuando selecciono otra certificación?
+
+Porque la plataforma toma el marco de la certificación activa y adapta a él los menús, los documentos y los textos. Un módulo que no corresponde a ese marco no aparece: un marco sin Declaración de Aplicabilidad, por ejemplo, no muestra esa pantalla.
+
+Si no encuentras algo que esperabas ver, revisa primero qué certificación está seleccionada. Lo mismo vale al leer un control: dos marcos pueden usar el mismo código para controles distintos.
+
+*Dónde se hace: Dashboard.*
+
+### ¿Qué significa que un panel diga «No pudimos consultar»?
+
+Que la consulta falló, no que no haya datos. La plataforma distingue tres casos: hay datos, no hay datos y no pudo mirar; el tercero se muestra aparte para que no se lea como un cero.
+
+Reintenta o refresca la pantalla antes de sacar conclusiones, y repórtalo si persiste. Lo mismo vale para un avance que aparece con «—» o una copia guardada que avisa que puede estar desactualizada: no tomes decisiones con esa cifra.
+
+### ¿Qué pasa con los archivos que no importé ni descarté al migrar mi SGSI?
+
+Se omiten. Si presionas «Continuar a cobertura» con archivos pendientes, la plataforma te avisa cuántos quedan y, si continúas, no los importa; puedes reabrir esa migración desde «Migraciones previas» para importarlos después. Nada se importa sin tu confirmación: la IA clasifica cada archivo y extrae su contenido, y tú lo importas, lo vuelves a extraer, corriges su tipo o lo descartas. Si ya revisaste todo, «Importar todos los pendientes» los importa de una vez.
+
+«Analizar con Wigi» es distinto: crea brechas y tareas y enriquece los riesgos importados sin una revisión previa. Revisa después lo que creó en Gaps, Gestión de Riesgos y Vigia Track.
+
+*Aplica a: ISO 27001.* *Dónde se hace: Migrar mi ISMS.*
+
+## Setup de la certificación
+
+### ¿Por qué un paso del Setup aparece bloqueado?
+
+Porque depende de otro paso que todavía no está completo. Cada paso usa lo que produjeron los anteriores, y el mensaje en pantalla nombra los pasos que faltan.
+
+Completa esos pasos y el bloqueado se habilita. Si el mensaje habla de firmas pendientes, completa las que nombra: algunos pasos exigen que los anteriores estén firmados, no sólo completos.
+
+*Dónde se hace: Setup Certificación.*
+
+### ¿Qué pasa si rehago un paso del Setup que ya estaba firmado?
+
+Se crea una versión nueva sin firma, y hay que volver a firmarla. La versión firmada queda en solo lectura en el historial, así que no se pierde.
+
+Por eso conviene revisar bien un documento antes de enviarlo a firma, y pedir las firmas a medida que cierras cada paso en vez de juntarlas todas al final.
+
+*Dónde se hace: Setup Certificación.*
+
+### ¿Por qué un hallazgo del validador vuelve a aparecer después de regenerar el documento?
+
+Porque el dato que lo provoca suele venir de otro paso. El Setup reusa lo capturado en pasos anteriores, así que regenerar el documento vuelve a traer el mismo dato.
+
+Corrígelo en el paso de origen y usa «Re-auditar sin caché». Si el hallazgo es correcto, porque el cliente tiene una brecha real, corrige la causa: una excepción no sirve para bajar el contador.
+
+*Dónde se hace: Setup Certificación.*
+
+### ¿Cuándo se da por terminado el Setup?
+
+Cuando los pasos requeridos están completos y firmados, y el plan de implementación está generado. Recién ahí se habilita el paso al Dashboard; si el botón no se habilita, faltan pasos o falta el plan, que es necesario aunque aparezca como opcional.
+
+Al firmar el plan, la plataforma crea las tareas, las fases y los hitos en Vigia Track, y los riesgos parten de los criterios y la metodología ya firmados.
+
+*Dónde se hace: Setup Certificación.*
+
+### ¿Puedo reutilizar el Setup de una certificación ISO al empezar otra en la misma organización?
+
+Sí, paso por paso. Los sistemas de gestión ISO comparten una estructura común, y el Setup reconoce los pasos equivalentes aunque cada marco los nombre distinto, como el análisis de contexto o el alcance. Si otra certificación de la organización ya tiene esos pasos hechos, el panel «Reutiliza lo que ya declaraste en tus otras certificaciones» ofrece traerlos; cada oferta se usa o se descarta por separado.
+
+El diagnóstico y el plan de implementación nunca se heredan, porque son propios de cada certificación, y las políticas se reutilizan desde el módulo de Políticas. Un paso reutilizado avisa si su origen cambió y se puede resincronizar; si ya está firmado, primero hay que abrir una versión nueva.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, ISO 22301.* *Dónde se hace: Setup Certificación.*
+
+### ¿Qué tiene de distinto el Setup de un sistema de gestión de continuidad del negocio?
+
+Mantiene el mismo ciclo de formulario, borrador con IA, firma y bloqueo, pero suma los pasos propios de la continuidad: el análisis de impacto en el negocio, la estrategia de continuidad, el plan de continuidad y el programa de ejercicios y pruebas.
+
+No tiene paso de Declaración de Aplicabilidad, porque ISO 22301 no tiene Anexo A. Los pasos comunes con otra certificación ISO de la organización, como el análisis de contexto o el alcance, se pueden reutilizar desde ella.
+
+*Aplica a: ISO 22301.* *Dónde se hace: Setup Certificación.*
+
+### ¿Qué pasos suma el Setup de un sistema de gestión de IA?
+
+Además de los pasos comunes a cualquier sistema de gestión ISO, suma la política de IA responsable y supervisión humana, el inventario y clasificación de sistemas de IA, la evaluación de impacto de los sistemas de IA y el plan de tratamiento de riesgos de IA.
+
+Si reutilizas el líder del sistema de gestión desde otra certificación de la organización, la plataforma lo ofrece con un aviso: el responsable del sistema de gestión de IA puede no ser la misma persona que lidera seguridad de la información. Confírmalo con el cliente antes de usarlo.
+
+*Aplica a: ISO 42001.* *Dónde se hace: Setup Certificación.*
+
+### ¿Por qué un control implementado aparece como «Aún no podemos verlo»?
+
+Porque en «Lo que puedes adelantar» el estado sale de lo que la plataforma midió, no de lo que se declaró. Que el control figure implementado dice que alguien lo marcó así; para que aparezca «Operando» una fuente tiene que medirlo funcionando: un conector del sistema que corresponde (por ejemplo, el proveedor de identidad para el segundo factor), el agente de equipos, los proveedores críticos con su respaldo o una evidencia aprobada y vigente del control. La fila lo avisa con la nota «figura implementado, pero ninguna fuente midió que esté operando».
+
+Para que cambie, usa la acción de la fila: conectar el sistema o subir la evidencia. Si en cambio dice «No pudimos mirar», la consulta a la fuente que lo mide falló: no significa que el control no opere.
+
+*Dónde se hace: Centro de Comando.*
+
+### ¿Cómo se calcula hasta cuándo pedir algo a un tercero?
+
+Hacia atrás desde la fecha de la auditoría interna de tu camino a la auditoría. Cada control de la lista dice cuántas semanas tiene que estar operando antes de esa auditoría para que haya registros que mostrar, y cada pedido a un tercero —la administración del edificio, un técnico, un distribuidor de licencias, un cliente— dice cuánto suele demorar. «Operando antes del» es la auditoría interna menos las semanas de operación; «Pedir antes del» es esa fecha menos la demora del tercero. Si ya pasó y el control todavía no opera, el pedido aparece como «Atrasado».
+
+Las fechas sólo aparecen con la fecha de auditoría confirmada y por venir. Si todavía es una propuesta, ya pasó o la auditoría interna no tiene fecha, la sección te pide confirmarla y no muestra plazos.
+
+*Dónde se hace: Centro de Comando.*
+
+### ¿De dónde saca Wigi el responsable y el proveedor?
+
+En «Lo que puedes adelantar», Wigi propone el responsable de cada ítem a partir de tu organigrama y el tercero a partir de los proveedores que ya tienes registrados; no inventa personas ni empresas. Si no encuentra a nadie que corresponda, deja el campo vacío para que lo completes tú. Si el control ya tiene un responsable declarado, se mantiene ese responsable declarado: Wigi no lo cambia.
+
+Cuando el ítem es una compra, Wigi puede sumar un producto del mercado como referencia. Ese producto aparece rotulado «Sugerencia de mercado: no es un proveedor tuyo»: es una idea para comparar, no un proveedor registrado ni una recomendación de contratar. Tú decides si aplicas, editas o descartas cada propuesta.
+
+*Dónde se hace: Centro de Comando.*
+
+### ¿Qué pasa con mi plan cuando apruebo un ítem?
+
+Al aplicar (aprobar) la propuesta de un ítem de «Lo que puedes adelantar», el cambio llega a tu plan de trabajo. Si el control ya tiene una tarea abierta, la propuesta se vincula a esa tarea y se agrega como comentario; si no la tiene, se crea una tarea nueva con el responsable y la fecha propuestos, que puedes corregir con «Editar» antes de aplicarla.
+
+Una compra sólo se convierte en tarea: no se registra ningún proveedor ni se modifica nada de la configuración de tu organización. Si descartas la propuesta, tu plan queda como estaba, y con «Volver a proponer» Wigi prepara otra.
+
+*Dónde se hace: Centro de Comando.*
+
+## Controles y Declaración de Aplicabilidad
+
+### ¿Qué diferencia hay entre un control justificado y uno excluido?
+
+Son opuestos. Un control justificado aplica, tiene su razón documentada y sigue pendiente: su gap queda abierto y cuenta en el porcentaje de cumplimiento. Un control excluido queda fuera del alcance: su gap se cierra y sale del cálculo.
+
+Como excluir mejora el porcentaje, una exclusión tiene que sostenerse en un hecho que la organización declaró, no en una opinión. Si la plataforma no propone una justificación, es porque no encontró ese hecho: redáctala con el cliente o reconsidera la exclusión.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001.* *Dónde se hace: SOA.*
+
+### ¿Puedo excluir todos los controles físicos si el cliente no tiene oficina?
+
+No todos. No tener instalaciones físicas es un hecho que sostiene varias exclusiones del dominio A.7, pero no la de A.7.9, seguridad de los activos fuera de las instalaciones, que en una organización sin oficina es justamente el que más aplica.
+
+Revisa cada control por separado. Si una exclusión contradice algo que la organización declaró, la plataforma la marca como contradicción para que corrijas la exclusión o el hecho, según cuál sea falso.
+
+*Aplica a: ISO 27001.* *Dónde se hace: SOA.*
+
+### ¿Por qué la SoA de ISO 42001 va separada de la de ISO 27001?
+
+Porque cada certificación tiene su propia Declaración de Aplicabilidad y nunca se mezclan. El Anexo A de ISO 42001 tiene 38 controles (A.2 a A.10) y el de ISO 27001 tiene 93 (A.5 a A.8): los rangos se solapan, así que un mismo código, como A.8.2, nombra controles distintos en cada marco.
+
+Si ves un código con otro estado del que esperabas, confirma qué certificación está activa antes de tocar nada. Cada SoA se emite y se firma en su propia certificación.
+
+*Aplica a: ISO 27001, ISO 42001.* *Dónde se hace: SOA.*
+
+### ¿Por qué no veo Controles, SOA ni Gaps con mi certificación de continuidad del negocio?
+
+Porque ISO 22301 no tiene Anexo A ni Declaración de Aplicabilidad, y la plataforma oculta esas pantallas cuando es la certificación activa. No es un error ni falta de permisos.
+
+El eje de ese marco es la continuidad: el análisis de impacto en el negocio, la estrategia, los planes y los ejercicios, que se trabajan en el Setup y en Plan de Continuidad (BCP) de Vigia Track.
+
+*Aplica a: ISO 22301.* *Dónde se hace: Plan de Continuidad (BCP).*
+
+### ¿Por qué un control aparece implementado si no sube ninguna evidencia?
+
+Porque el estado se deriva de la evidencia que la plataforma ya tiene, no sólo de los archivos que subes. Un conector, un registro de otro módulo o un documento aprobado pueden sostener el control sin que nadie cargue nada a mano.
+
+Abre el control y revisa su panel de cobertura: muestra la evidencia por fuente y si el estado es automático o fijado a mano. Si algo no calza, corrige la evidencia de origen antes que el estado.
+
+*Dónde se hace: Controles.*
+
+### ¿De dónde sale el estado automático de los controles de un sistema de gestión de IA?
+
+Varios controles de ISO 42001 toman su evidencia del registro de Gobernanza de IA: roles, componentes, evaluación de impacto, pruebas y decisión de despliegue de cada sistema de IA. En el panel de cobertura del control esa fuente aparece como «Gobernanza de IA».
+
+Por eso, mantener al día el inventario de sistemas de IA y sus evaluaciones mueve el estado de esos controles sin cargar evidencia a mano. Un control con estado fijado a mano no se recalcula solo.
+
+*Aplica a: ISO 42001.* *Dónde se hace: Controles.*
+
+### ¿Cómo se cierra un gap?
+
+Un gap se cierra con causa raíz, fecha compromiso y validación, y también se resuelve solo cuando el control pasa a implementado. Si el control retrocede, el gap se reabre y su tarea vuelve a pendiente.
+
+Excluir el control cierra su gap; justificarlo no, porque un control justificado sigue aplicando. Cerrar y validar un gap le corresponde al cliente: como implementador registras la causa raíz y la fecha junto al responsable.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001.* *Dónde se hace: Gaps.*
+
+### ¿Por qué en Cumplimiento no aparecen Controles, SOA, Gaps ni Incidentes?
+
+Porque el marco activo no se trabaja con ese catálogo de controles. Con la Ley 21.719, GDPR, LGPD, LFPDPPP o ISO 22301 como certificación activa, esos ítems y el Mapa de cumplimiento se ocultan: las leyes de privacidad se trabajan en la sección Privacidad, y la continuidad del negocio, en el Plan de Continuidad de Vigia Track.
+
+Políticas y Procedimientos, Revisión de Cumplimiento, Cumplimiento Legal e Informes siguen disponibles, según los permisos de tu rol. Al entrar a Cumplimiento se abre Políticas y Procedimientos. Si cambias la certificación activa en la barra superior, el menú cambia con ella.
+
+*Aplica a: Ley 21.719, GDPR, LGPD, LFPDPPP, ISO 22301.* *Dónde se hace: Cumplimiento.*
+
+### ¿Por qué mi cobertura legal aparece con «—» o con obligaciones sin poder medir?
+
+Porque la cobertura de una ley no se declara: se deriva de los controles de tu sistema de gestión. Si todavía no hay un sistema de gestión del cual derivarla, el porcentaje aparece como «—» y la pantalla dice que aún no puede calcular tu cobertura; igual puedes ver qué te exige la ley. Si hay obligaciones que no se pudieron medir, cuentan como 0 en el porcentaje y la pantalla te dice cuántas son, para que no leas ese número como incumplimiento.
+
+Sólo se miden las normas registradas que tienen catálogo de obligaciones, y las normas salen del paso de leyes del Setup. Si la pantalla dice «No pudimos calcular tu cobertura» o «No pudimos consultar qué normas te aplican», la consulta falló: reintenta antes de sacar conclusiones.
+
+*Dónde se hace: Cumplimiento Legal.*
+
+### ¿Cómo pruebo un control y qué significa cada resultado?
+
+Abre el control y, en su resumen, busca «Prueba del control». Primero necesita un procedimiento: escríbelo o pídelo con «Proponer con Wigi», revísalo y aplícalo, tal cual o con tus cambios. También necesita el periodo auditado de la certificación; si falta, lo declaras ahí mismo a partir de la sugerencia. Con eso, «Probar ahora» corre el procedimiento contra la evidencia de ese periodo y puedes seguir trabajando mientras termina.
+
+Cada resultado muestra en qué se apoya: las citas, con aviso si alguna no se pudo comprobar contra el documento, los conteos y la evidencia que no se consideró y por qué. «Pasa» y «Falla» son veredictos. «No ocurrió en el periodo» quiere decir que se pudo mirar todo y no hubo actividad que probar. «No pudimos mirar» quiere decir que faltó leer algo para decidir, y «La prueba no terminó», que el trabajo se interrumpió: ninguno de los dos dice nada del control, así que vuelve a probar.
+
+Nada cambia el estado del control. Al aceptar un «Pasa» o un «Falla» queda registrada una revisión del control a tu nombre; al aceptar los otros sólo queda constancia.
+
+*Dónde se hace: Controles.*
+
+## Evidencias y conectores
+
+### ¿Qué significa que un chequeo diga «No se pudo ejecutar»?
+
+Que la plataforma no pudo consultar la fuente, por ejemplo por un permiso que falta en el conector. No es un incumplimiento ni un cero: ese resultado no entra en el porcentaje.
+
+Corrige el acceso y vuelve a ejecutar. Distinto es «Sin veredicto», que indica que el chequeo no aplicaba a ese recurso.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Ejecuciones.*
+
+### ¿Qué es el plan de remediación que propone Wigi para un hallazgo de la nube?
+
+En el detalle de un hallazgo fallido de un escaneo de la nube, «Proponer plan con Wigi» arma los pasos para corregir ese recurso: qué revisar antes, el cambio, cómo deshacerlo y cómo confirmar que quedó bien, con los comandos para copiar. Dice además si el cambio tiene vuelta atrás y si puede cortar el servicio. Los pasos que no pasan las reglas de la plataforma se quitan y se avisa cuántos.
+
+La plataforma no escribe en tu cuenta: usa el mismo acceso de sólo lectura del conector, y los cambios los ejecutas tú. Aceptar el plan no cierra el hallazgo: se cierra cuando un escaneo lo encuentra en orden.
+
+«Verificar ahora» corre un escaneo acotado a ese chequeo y tiene cuatro resultados: en curso, el recurso quedó en orden, sigue fallando, o no pudimos verificar, con el motivo. Que el recurso no aparezca en el escaneo no cuenta como corregido.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Ejecuciones.*
+
+### ¿Cómo dejo como evidencia una pantalla de una aplicación que no tiene integración?
+
+Con la extensión de captura para Chrome. En Automatización de evidencias, Conectores, genera tu clave personal de captura en «Captura desde el navegador» y pégala en la extensión. Luego abre la pantalla que quieres dejar como evidencia, elige la certificación y el control, revisa la vista previa y envía.
+
+La captura queda como evidencia del control con un sello: la huella del archivo, la página de origen sin parámetros, quién la envió y la hora en que la plataforma la recibió. Si lo que llega no coincide con lo que capturó la extensión, no se guarda nada. En el detalle del control, «Verificar» vuelve a calcular la huella del archivo guardado y dice si está intacta, alterada o si no se pudo verificar.
+
+La extensión usa la sesión que ya tienes abierta en esa aplicación: la plataforma no guarda sus contraseñas. Tu clave vence a los 90 días y puedes revocarla cuando quieras. Después de enviarla, la captura pasa por la misma revisión que cualquier evidencia que subes a mano.
+
+*Dónde se hace: Conectores.*
+
+### ¿Una ejecución que terminó sin hallazgos significa que todo está bien?
+
+No necesariamente. Una ejecución terminada no prueba que el sistema se haya revisado: cero hallazgos también puede significar que no se evaluó ningún recurso.
+
+Antes de darla por buena, revisa en el histórico de Ejecuciones qué recursos se evaluaron. Y recuerda que una corrección sólo cuenta cuando un nuevo escaneo la confirma.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Ejecuciones.*
+
+### ¿Por qué un control sigue en Necesita mejora si la política ya está aprobada?
+
+Porque la medición manda sobre el papel. Si un chequeo técnico falla o quedó vencido, el control queda en Necesita mejora aunque exista la política aprobada, y su detalle lista los chequeos que fallaron.
+
+Corrige en el sistema lo que falló y vuelve a escanear. Algunos hallazgos miden orden y no exposición, como un grupo de seguridad sin usar: siguen en la lista, pero no mueven el porcentaje del control.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001.* *Dónde se hace: Controles.*
+
+### ¿Cómo pido la evidencia que ningún conector puede medir?
+
+Con las Solicitudes de evidencia. Wigi propone hasta tres solicitudes por control, con criterio de aceptación, persona y frecuencia, y nada sale por correo hasta que una persona las revisa y aprueba.
+
+Quien recibe la solicitud entrega por un enlace sin login, y la IA hace un pre-chequeo que sólo recomienda. Aceptar o devolver la entrega lo decide una persona del cliente, nunca quien la entregó; un enlace entregado como URL siempre se revisa a mano, porque la plataforma no lo abre.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Solicitudes de evidencia.*
+
+### ¿Cómo preparo la evidencia para entregársela al auditor?
+
+Con el Paquete para el auditor, que se arma desde Gestión de Evidencias: un ZIP con el expediente de evidencia de la certificación. Antes, Wigi describe las evidencias que no tienen descripción, sin reemplazar un texto escrito por una persona; el paquete se arma en segundo plano y queda en un historial para descargarlo.
+
+Lee el LEEME antes de entregarlo: una sección que no se pudo armar sale marcada con «NO PUDIMOS CONSULTAR» en vez de desaparecer. El paquete es una foto del momento; si la evidencia cambia, pide uno nuevo.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001.* *Dónde se hace: Gestión de Evidencias.*
+
+### ¿Por qué no aparece Automatización de Evidencias con mi certificación de continuidad del negocio?
+
+Porque con ISO 22301 activa ese grupo del menú no se muestra: la evidencia de ese marco no sale de escanear sistemas, sino del propio programa de continuidad.
+
+El análisis de impacto, la estrategia, los planes y los ejercicios se firman en el Setup y se gestionan en Plan de Continuidad (BCP) de Vigia Track. Si esperabas ver los conectores, revisa también que la certificación activa sea la correcta.
+
+*Aplica a: ISO 22301.* *Dónde se hace: Plan de Continuidad (BCP).*
+
+### ¿Qué significa «Sin declarar» en la Evaluación Cloud y qué hago con los avisos del escaneo?
+
+«Sin declarar» quiere decir que nadie ha respondido por los servicios de esa nube. La pantalla no muestra un porcentaje porque un cero se leería como «no tienes nada habilitado», y eso nadie lo dijo; debajo ves cuántos de los servicios recomendados ya se declararon. Las nubes que aparecen son las que tu organización declaró en su configuración.
+
+Con «Re-verificar contra escaneo» tus respuestas se contrastan con el último escaneo de tus conectores. Si declaraste que no y el escaneo encontró el servicio funcionando, el aviso te ofrece «Corregir a Sí»; si el escaneo lo detectó en tu nube, puedes «Confirmar». Un servicio marcado «solo declaración» todavía no se verifica con el escaneo, y los controles potencialmente cubiertos indican posible evidencia, no cumplimiento.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Evaluación Cloud.*
+
+### ¿Por qué no puedo cambiar el dueño de un equipo en Dispositivos?
+
+Porque el dueño sólo se asigna a mano cuando ninguna fuente lo informa: el botón «Asignar» aparece en los equipos sin dueño. Si el dueño viene de la fuente, por ejemplo de tu herramienta de gestión de dispositivos, la plataforma no lo reasigna; corrígelo en esa fuente.
+
+La cobertura cuenta cuántas personas activas del organigrama tienen al menos un equipo observado. Si alguna fuente no se pudo leer completa, la pantalla avisa que la cobertura puede ser mayor, en vez de mostrar un número más bajo como si fuera real. Para las personas que faltan, usa «Invitar a instalar» o «Invitar a todas las que faltan».
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Dispositivos.*
+
+### ¿Por qué el reporte de evidencias no cambia aunque elija fechas, conectores o controles?
+
+Porque hoy el reporte siempre es el consolidado de las evidencias de tus conectores. De las opciones del formulario sólo cuentan el formato (PDF, Excel, CSV o JSON) y si incluyes recomendaciones; el tipo de reporte, el rango de fechas, los conectores, los controles y las opciones de gráficos y metadatos todavía no cambian su contenido. Aun así, el rango de fechas es obligatorio: sin él no se habilitan «Vista previa» ni «Exportar reporte».
+
+«Exportaciones Recientes» se guarda sólo en este navegador, y «Descargar» vuelve a generar el reporte con los datos actuales: no es la copia original. Si necesitas conservar lo que entregaste, guarda el archivo que descargaste en su momento.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Reportes.*
+
+### ¿Qué significa la «Revisión de Wigi» que aparece junto a un archivo de un control?
+
+Cada vez que subes un archivo a un control, o reutilizas uno, Wigi lo lee y recomienda si sirve como evidencia de ese control. «Sirve»: corresponde al control y, si hay periodo auditado declarado, cae dentro. «Hay que corregir»: no corresponde al control o su fecha queda fuera del periodo; el motivo lo explica. «Confírmalo tú»: Wigi cree que sirve pero no pudo señalar la parte exacta del documento que lo muestra; al archivo no le falta nada, falta que lo compruebes. «No se pudo leer»: el archivo no dejó extraer texto suficiente, como pasa con un escaneo sin texto o con un enlace. «Revisando…» es que todavía lo está leyendo y «No pudimos revisar», que la revisión no terminó: no dice nada del archivo y puedes pedir otra con «Revisar de nuevo con Wigi».
+
+Si ves «Sin periodo auditado declarado», Wigi no pudo comprobar la fecha contra lo que mirará el auditor; decláralo y pide otra revisión. La revisión es una recomendación: no cambia si el archivo cuenta para el control, que depende de su vigencia y de que una persona lo haya revisado.
+
+*Dónde se hace: Controles.*
+
+### ¿Qué es el bloque «Ya tienes esto» en una solicitud de evidencia propuesta?
+
+Aparece cuando la certificación ya tiene un archivo que podría responder a lo que la solicitud va a pedir. Muestra el nombre del archivo, el control al que está subido y por qué podría servir, para que no le pidas a una persona algo que ya tienes.
+
+Con «Usar esta evidencia» la solicitud se aprueba usando ese archivo como entrega: no se envía ningún correo y la entrega queda en «Por revisar», donde una persona la acepta o la devuelve como cualquier otra. Con «Pedirla igual» la sugerencia se descarta y la solicitud sigue propuesta, lista para editarla y aprobarla de la forma habitual. Si apruebas en lote sin decidir, esas solicitudes se piden igual, y la confirmación te lo avisa.
+
+Si al usarla la plataforma responde que la evidencia ya no está disponible, es porque se borró o venció mientras tanto: no se cambió nada y la lista se actualiza para que decidas de nuevo.
+
+*Dónde se hace: Solicitudes de evidencia.*
+
+## Riesgos, activos y proveedores
+
+### ¿De dónde sale la escala con la que califico un riesgo?
+
+De los criterios de riesgo que el cliente firmó en el Setup de la certificación activa. Fijan qué niveles de probabilidad e impacto existen y desde qué puntaje un riesgo es aceptable, tolerable o exige aprobación, según el apetito declarado. Un valor fuera de esa escala se rechaza al guardar.
+
+Si nadie firmó los criterios, la plataforma usa una escala de 4 niveles de impacto por 5 de probabilidad. Si no logra leerlos, sólo aplica un tope y lo deja registrado: nunca asume una escala que el cliente no firmó. Si la escala está mal, corrígela en el Setup con el cliente.
+
+*Dónde se hace: Gestión de Riesgos.*
+
+### ¿Por qué la matriz de riesgos muestra menos riesgos de los que tengo registrados?
+
+Porque algunos tienen niveles que la escala firmada no define, por ejemplo riesgos importados desde una planilla con otra escala. Esos riesgos se cuentan, pero no se dibujan en la matriz, y la pantalla te avisa.
+
+Desde ese aviso puedes recalificarlos: la plataforma sube al máximo de la escala lo que la excede, o Wigi propone una nueva calificación. Una persona decide riesgo por riesgo. Si Wigi no propuso nada para alguno, es porque faltaba información o el validador descartó la propuesta: lee el motivo en pantalla y califícalo a mano.
+
+*Dónde se hace: Gestión de Riesgos.*
+
+### ¿La plataforma crea riesgos por su cuenta?
+
+No los crea directo en el registro: los deja como propuestas en la bandeja del dashboard de Gestión de Riesgos. Tienen cinco orígenes, y cada tarjeta dice cuál es el suyo: vulnerabilidades técnicas agrupadas; brechas detectadas por el análisis con IA; si trabajas gobernanza de IA, los sistemas de IA del inventario; en una certificación de privacidad, los riesgos que ya tratan datos personales en la certificación de seguridad hermana, que traes con «Sincronizar»; y los que tú o alguien de tu organización le pide a Wigi en el chat, que quedan con el origen «Wigi» y el nombre de quien los propuso.
+
+Cada propuesta se puede editar y aprobar, y entonces se crea el riesgo validado contra la escala firmada, o descartar con un motivo que queda registrado (también en lote). Si la bandeja dice «No pudimos consultar las propuestas», la consulta falló y puede haber propuestas esperando: reintenta antes de concluir que no hay nada pendiente.
+
+*Dónde se hace: Gestión de Riesgos.*
+
+### ¿Cómo evalúo a un proveedor sin mandarle un cuestionario eterno?
+
+Empieza por el vetting automático: lee la superficie pública del proveedor y deja hallazgos en 11 dimensiones, como certificaciones, ubicación de los datos o contrato de encargo, cada uno marcado como verificado, sólo declarado o ausente. El cuestionario nace después de la ficha y no pregunta lo que el vetting ya verificó; el proveedor lo responde en un portal sin login y la IA lee sus documentos.
+
+Si el vetting no pudo leer el sitio, queda inconcluso: no significa que el proveedor no tenga el control, así que reintenta o envía el cuestionario. Los subencargados detectados no se aplican solos: una persona los confirma o los descarta.
+
+*Dónde se hace: Proveedores.*
+
+### ¿Cómo sé si un proveedor empezó a usar nuestros datos para entrenar inteligencia artificial?
+
+El análisis del proveedor lee lo que publica sobre entrenar modelos con datos de sus clientes (términos de servicio, páginas de privacidad o de IA) y lo resume en una postura: no entrena, entrena salvo que te opongas, entrena, o no lo dice. Sólo la acepta con una cita textual de lo publicado; si no la encuentra, queda como «no se pudo determinar», que no es lo mismo que «no entrena».
+
+A los encargados de tratamiento y a los proveedores que ya publican una postura se les revisa el sitio cada semana; si lo publicado no cambió, no se vuelve a analizar. Cuando la postura empeora, el monitoreo del análisis lo marca, el responsable recibe un aviso y queda un riesgo propuesto en la bandeja: nada se aplica solo y el estado del proveedor no cambia.
+
+En el registro de encargados, el contrato tiene el campo «Uso de datos para entrenar IA», con lo que el análisis vio como propuesta. Si el contrato lo prohíbe y el proveedor publica lo contrario, el riesgo propuesto lo dice y sube de nivel.
+
+*Dónde se hace: Proveedores.*
+
+### ¿Cómo registro un software de código abierto que no tiene contrato?
+
+Si tu equipo lo instala, administra y mantiene, y no contrataste soporte con el proyecto ni con un integrador, no existe una contraparte con quien firmar un contrato, acordar cláusulas o pedir una certificación. Abre el proveedor, ve a «Evidencia documental» y usa «No existe contraparte contractual», explicando el motivo. Desde ahí el contrato, el SLA, las cláusulas de seguridad y la certificación dejan de pedirse y quedan a la vista del auditor como «no aplica», con quién lo declaró y cuándo; no se dan por acreditados. La política o el canal de seguridad del proyecto se sigue exigiendo: cárgala con el tipo «Política de seguridad del proveedor», no como «Otro». Si más adelante contratas soporte, revoca la declaración y los requisitos vuelven.
+
+*Dónde se hace: Proveedores.*
+
+### ¿Cómo registro a un profesional independiente, como un contador, una abogada o un desarrollador externo?
+
+A una persona que presta un servicio profesional no se le puede pedir lo mismo que a una empresa: no tiene certificación, acuerdo de nivel de servicio, plan de continuidad ni política de seguridad corporativa. Abre el proveedor, ve a «Evidencia documental» y usa «Es un profesional independiente», explicando el motivo. Desde ahí esos cuatro requisitos dejan de pedirse y quedan a la vista del auditor como «no aplica», con quién lo declaró y cuándo; no se dan por acreditados.
+
+Lo que sí se le puede pedir a una persona se sigue exigiendo: el contrato o acuerdo de servicio, el acuerdo de confidencialidad y las cláusulas de seguridad. Si además accede a datos, se pide su certificado de antecedentes: cárgalo con ese tipo de documento.
+
+Cuando el proveedor ya tiene cargados documentos propios de una persona (currículum, antecedentes o una certificación profesional), la plataforma sugiere la declaración; no se aplica hasta que alguien la confirma. Si más adelante el servicio pasa a prestarlo una empresa, revoca la declaración y los requisitos vuelven.
+
+*Dónde se hace: Proveedores.*
+
+### ¿Qué datos adicionales pide SOC 2 en riesgos y proveedores?
+
+El indicador de completitud de la ficha («Mínimo auditable» en proveedores) se evalúa contra el marco de la certificación activa, y con SOC 2 suma requisitos propios. A cada riesgo le pide su categoría (CC3.2). A cada proveedor le pide una evaluación registrada y la fecha de su próxima evaluación (CC9.2).
+
+Ese porcentaje mide si el registro tiene lo que un auditor espera encontrar, no el estado de cumplimiento. Al abrirlo ves qué campo falta y qué criterio lo exige.
+
+*Aplica a: SOC 2.* *Dónde se hace: Proveedores.*
+
+### ¿Cómo se ven en la plataforma los requisitos de PCI DSS?
+
+Hoy todavía no se ven como controles: PCI DSS no se puede activar como certificación en la plataforma, porque aún no tiene setup guiado ni su catálogo de requisitos cargado. Por eso no hay estado derivado de evidencia para sus requisitos.
+
+Lo que ya está preparado son reglas de completitud que citan requisitos de PCI DSS en los registros: el resultado del análisis de cada riesgo (12.3.1), el entorno de los activos para delimitar el alcance del CDE (12.5.1) y la evaluación y el seguimiento de los proveedores (12.8.4). Se aplican sólo cuando la certificación activa es de ese marco. Si tu organización necesita PCI DSS, consúltalo con soporte antes de planificarlo.
+
+*Aplica a: PCI DSS.*
+
+### ¿Por qué un activo dice que su confidencialidad indica otra clasificación?
+
+Porque un activo se clasifica por la información más sensible que contiene, y su valoración de confidencialidad ya lo dice. La plataforma deriva la clasificación así: confidencialidad 5 lleva al nivel más alto del esquema de tu organización, 4 a confidencial, 2 y 3 a interno y 1 a público. Si tu esquema no tiene ese nivel, usa el más cercano por encima.
+
+Cuando la etiqueta no coincide, la lista lo señala bajo la clasificación: en rojo si queda por debajo, que es lo riesgoso, y en gris si queda por encima. El filtro «Por debajo de su valoración» las reúne. El botón «Usar» con el nivel sugerido (por ejemplo «Usar Confidencial») abre la edición con ese nivel elegido y no guarda hasta que tú lo confirmes; si la valoración era la equivocada, corrígela a ella. Un activo sin confidencialidad valorada no se señala: primero hay que valorarlo.
+
+*Dónde se hace: Activos.*
+
+## Políticas y documentos
+
+### ¿Tengo que redactar las políticas desde cero?
+
+No. En la Biblioteca de políticas, «Implementar» crea el borrador con Wigi a partir de la plantilla del marco activo, y «Generar todas con Wigi» lanza en lote las pendientes. La generación corre en segundo plano; si falla, la política queda en «Error de generación» y la reintentas con «Generar con Wigi».
+
+Si el cliente ya tiene políticas en otro marco, la plataforma propone derivarlas: copia el documento y cambia la norma citada. Las derivadas nacen en Borrador y hay que revisarlas antes de enviarlas a firma. En Borrador, «Sugerir controles con Wigi» propone los controles a asociar y tú decides cuáles aceptas.
+
+*Dónde se hace: Políticas y Procedimientos.*
+
+### ¿Puedo cambiar una política que ya está en revisión o aprobada?
+
+Directamente no: mientras está en Borrador la editas libremente, pero desde la revisión el contenido queda congelado. Para cambiarla usa «Crear versión correctiva», que abre una versión nueva.
+
+«Revocar aprobación» la devuelve a Borrador, pero sólo lo usa el cliente. Sólo se pueden eliminar políticas en Borrador u Obsoletas. Una política creada en el Setup se abre en modo «Editar metadatos», porque su contenido lo gobierna la firma del Setup.
+
+*Dónde se hace: Políticas y Procedimientos.*
+
+### ¿«No pudimos consultar tus políticas» significa que no tengo ninguna?
+
+No. Ese aviso dice que la consulta falló, no que el portafolio esté vacío: usa «Reintentar» y no crees políticas hasta ver el portafolio. Cuando de verdad no hay, la pantalla dice «No hay políticas en…» el marco activo, y entonces puedes ir a la biblioteca o derivarlas desde otro marco si aparece la propuesta.
+
+Lo mismo vale para procedimientos: «No pudimos consultar los procedimientos» es un fallo, y «Aún no hay procedimientos» es que todavía no existen.
+
+*Dónde se hace: Políticas y Procedimientos.*
+
+### ¿Cómo sé si lo que mandan las políticas se está cumpliendo?
+
+Con la Revisión de Cumplimiento. El acta no se completa a mano: la plataforma deriva el veredicto de cada política desde los controles que la implementan, los acuses de lectura y la vigencia del documento. Los veredictos son «Se cumplen», «Con observaciones», «No se cumplen» y «Sin nada que verificar».
+
+Tú generas el acta y agregas observaciones con «Observar»; el cliente la cierra con «Aprobar y cerrar». Si ves «No pudimos consultar si la revisión está al día…», recarga: no la des por vencida ni por al día.
+
+*Dónde se hace: Revisión de Cumplimiento.*
+
+### ¿Por qué «Cobertura por dominio» marca 0 % o 100 % con mi marco?
+
+Porque hoy ese indicador cuenta sólo los dominios del Anexo A de ISO 27001, así que con otro marco activo su porcentaje no significa nada: ignóralo. La cobertura real de tu marco la ves en los controles asociados a cada política.
+
+Por la misma razón, algunos textos del constructor de políticas todavía citan ISO 27001. Antes de enviar una política a revisión, confirma que cite la norma de tu certificación.
+
+*Aplica a: ISO 27701, ISO 42001, ISO 22301, SOC 2, PCI DSS, NIST AI RMF, Ley 21.719, GDPR, LGPD, LFPDPPP.* *Dónde se hace: Políticas y Procedimientos.*
+
+## Tareas y seguimiento
+
+### ¿De dónde salen las tareas de Vigia Track?
+
+Casi todas nacen en otros módulos. Firmar el plan de implementación en el Setup crea las tareas, las fases y los hitos; también generan tareas los controles aplicables sin implementar, las políticas, los riesgos, el tratamiento aprobado, las observaciones de auditoría, los cambios aprobados y los workflows cuando una persona aprueba su propuesta.
+
+Antes de crear una tarea a mano con «Nueva tarea» en el Tablero Kanban, revisa si ya existe. El Plan Anual no genera tareas: sus actividades se siguen en su propia pantalla.
+
+*Dónde se hace: Tablero Kanban.*
+
+### ¿Por qué completé la tarea y su origen sigue abierto?
+
+Porque completar una tarea no cierra lo que la originó: cada módulo tiene sus propias reglas de cierre. Una observación de auditoría, por ejemplo, pide causa raíz, acción y evidencia, y si falta algo sigue en progreso con el comentario «[Plan de mejora] Cierre pendiente».
+
+Con los controles pasa lo mismo: su estado sale de la evidencia, no de las tareas, así que completar una tarea no implementa el control. Completa lo que pide el módulo de origen.
+
+*Dónde se hace: Tablero Kanban.*
+
+### ¿Por qué una tarea vuelve sola a su columna cuando la muevo en el tablero?
+
+Porque el cambio no se guardó. A menudo es una tarea que refleja otro flujo, como la revisión o aprobación de una política: su estado lo define ese flujo, y se cierra en el módulo de origen, no desde el tablero.
+
+Abre la tarea para ver de dónde viene y ciérrala ahí; la tarea se actualiza sola. Si el tablero avisa que trabaja con caché local, no muevas tareas: tus cambios no se guardan hasta que vuelva la conexión.
+
+*Dónde se hace: Tablero Kanban.*
+
+### ¿Por qué un hito me pide confirmar si se cumplió?
+
+Porque la plataforma no tiene cómo comprobarlo con un dato. Algunos hitos se cumplen solos cuando hay un hecho que los prueba, como el plan de tratamiento firmado o la auditoría interna cerrada; otros, como las políticas publicadas o la capacitación desplegada, los confirma una persona.
+
+Confírmalo con el cliente antes de marcarlo. Las fases y los hitos los escribe el plan de implementación, y sus fechas se corrigen en la línea de tiempo de cada fase.
+
+*Dónde se hace: Hitos y cronograma.*
+
+### ¿Dónde gestiono los planes de continuidad de una certificación de continuidad del negocio?
+
+En Plan de Continuidad (BCP), dentro de Vigia Track, que es el módulo propio de ISO 22301. Ahí se trabajan los planes que nacen del Setup, como el plan de continuidad, con sus tiempos de recuperación y sus ejercicios.
+
+El Setup deja firmados el análisis de impacto, la estrategia y el programa de ejercicios; el día a día de los planes y sus pruebas sigue en ese módulo.
+
+*Aplica a: ISO 22301.* *Dónde se hace: Plan de Continuidad (BCP).*
+
+### ¿Puede Wigi proponer el análisis de impacto?
+
+Sí. En la pestaña de análisis de impacto de Plan de Continuidad, con la versión en borrador, usa «Proponer con Wigi». Wigi propone la matriz de impacto y el fundamento de cada celda para los procesos que todavía no están evaluados; los tiempos que se derivan de la matriz se calculan solos, y el mínimo operativo, los períodos pico y la dotación quedan para ti.
+
+Nada cuenta hasta que una persona abre el proceso y aplica la propuesta. También puedes ajustarla antes de guardarla o descartarla, una por una o varias a la vez desde la tabla. Para proponer, Wigi usa los activos, proveedores y tratamientos de datos que ya están cargados; si no pudo consultar alguno, el aviso lo dice. Si quedan procesos sin proponer, vuelve a pedirlo.
+
+*Dónde se hace: Plan de Continuidad (BCP).*
+
+### ¿Cuándo se publica el Plan Anual y qué significa que un requisito figure como cubierto?
+
+El plan se arma con el «Asistente de creación», en modo certificación o anual completo, a partir de sugerencias de Wigi que puedes editar. Se guarda como borrador y se envía a firma con «Guardar Borrador y Solicitar Firma»; se publica cuando se completan todas las firmas, que dejan constancia de quién lo aprobó.
+
+Un requisito clave figura cubierto cuando alguna actividad del plan lo menciona: indica que está planificado, no que se haya cumplido. Si en el año en curso no hay ninguna revisión por la dirección, la pantalla te lo avisa. Y si dice que no pudo cargar el plan del año, no significa que el plan esté vacío: reintenta.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, ISO 22301, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Plan Anual.*
+
+## Auditorías y Trust Center
+
+### ¿Qué necesito para cerrar un hallazgo de auditoría?
+
+Depende del tipo, y la plataforma no acepta menos. Una no conformidad y una observación exigen causa raíz, acción y evidencia; una oportunidad de mejora exige acción y evidencia, o la justificación de por qué no se adopta. Las observaciones y oportunidades generan además una tarea en el Plan de Mejora Continua.
+
+El hallazgo pasa de Abierto a En progreso y a Pendiente de verificación, y desde ahí se cierra o vuelve atrás; una revisión de eficacia negativa lo deja Reabierto. La evidencia puede moverlo a En progreso, pero nunca lo cierra sola. Reasignar el responsable o mover el plazo exige un motivo, que queda en el historial.
+
+*Dónde se hace: Hallazgos y No Conformidades.*
+
+### ¿Por qué veo hallazgos «sin auditoría asignada» que no se cuentan?
+
+Los hallazgos se cuentan en la certificación de la auditoría que los levantó. Uno que llegó sin auditoría, por ejemplo desde una importación de un informe anterior, no pertenece todavía a ninguna certificación: no suma en los contadores, en la lista ni en el chequeo de requisitos.
+
+Para que cuente, usa «Revisar y asignar» en la franja de Hallazgos y elige una auditoría de la certificación activa. Si la importación ya lo había asociado a otra certificación, sólo puedes asignarlo a una auditoría de esa. Sin certificación seleccionada, la pantalla muestra los hallazgos de toda la organización y lo dice.
+
+*Dónde se hace: Hallazgos y No Conformidades.*
+
+### ¿Wigi puede redactar la causa raíz de un hallazgo?
+
+Puede proponerla, junto con la acción, pero el hallazgo sólo cambia cuando una persona elige «Aplicar al hallazgo». El auditor interno no opera este paso, porque la causa la analiza el auditado.
+
+Acuerda con el cliente que quien verifica el cierre no sea quien remedió el hallazgo: es un punto que el auditor revisa.
+
+*Dónde se hace: Hallazgos y No Conformidades.*
+
+### ¿Puedo cargar los hallazgos desde el informe que entregó el auditor?
+
+Sí. En Hallazgos usa «Importar desde informe», elige la auditoría a la que pertenece y sube el informe en PDF o Word, de hasta 25 MB. Wigi lo lee en segundo plano y te propone cada hallazgo con su tipo, su graduación, el requisito que cita y la frase del informe de donde lo sacó, para que la compares con el original.
+
+Nada se crea hasta que tú aplicas cada propuesta, tal cual o corregida con «Editar y aplicar». Lo que no corresponde se descarta con un motivo, que queda registrado. Si Wigi dice que no encontró hallazgos, leyó el informe y no había; si dice que la lectura falló o que dejamos de poder consultarla, no significa que el informe no traiga hallazgos. Avisa también cuando sólo leyó una parte del informe o cuando no pudo revisar si un hallazgo ya existía.
+
+*Dónde se hace: Hallazgos y No Conformidades.*
+
+### ¿Cómo preparo el paquete de evidencias para el auditor y sé que no falta nada?
+
+Pídelo en Gestión de Evidencias con el botón «Paquete para el auditor». Se prepara en segundo plano como un archivo ZIP con el manifiesto, las evidencias por control y los registros de capacitación, políticas, agentes y proveedores. Es distinto del informe en PDF de una auditoría.
+
+Revisa el manifiesto antes de entregarlo: un archivo que no se pudo leer aparece como no incluido con su motivo, y un registro ilegible dice «NO PUDIMOS CONSULTAR». Eso es una falta de lectura, no una falta de evidencia. Si no hay evidencias, la plataforma no entrega un ZIP vacío: el trabajo falla.
+
+*Dónde se hace: Gestión de Evidencias.*
+
+### ¿Qué muestra el Trust Center y qué hay que escribir a mano?
+
+Casi todo se deriva de lo que ya está en la plataforma: los marcos salen de las certificaciones activas, el nivel de aseguramiento lo calcula la plataforma, las fechas salen del calendario de Auditorías y sólo se publican las políticas aprobadas, firmadas o publicadas que se marquen. Un control justificado no se publica, porque aplica y sigue pendiente; el excluido sale como «Fuera de alcance». Una evaluación nunca sale como «Certificado».
+
+A mano se escriben el título, el subtítulo, la declaración de seguridad, el alcance resumido, el contacto, los subencargados y el texto del acuerdo de confidencialidad. Guardar y activar la página es decisión del cliente: hoy el implementador no puede guardar la configuración, así que puedes redactarle los textos fuera de la plataforma.
+
+*Dónde se hace: Trust Center.*
+
+### ¿Qué cambia cuando la auditoría es de SOC 2 y no una certificación ISO?
+
+SOC 2 no termina en un certificado: una firma auditora (CPA) emite un informe de atestación, de Tipo I sobre el diseño en una fecha o de Tipo II sobre la operación durante un periodo de observación. Por eso, con una certificación SOC 2 activa, Auditorías no muestra el Centro de Comando, el organismo certificador ni las etapas Stage 1 y Stage 2: ves tus auditorías internas y un aviso que lo explica.
+
+La plataforma no registra el tipo de informe ni el periodo de observación como un dato propio: acuérdalos con la firma auditora. Cuando una auditoría completada de la certificación tiene su informe cargado, el Trust Center muestra «Informe de atestación SOC 2», nunca «Certificado».
+
+*Aplica a: SOC 2.* *Dónde se hace: Auditorías.*
+
+### ¿Puedo preparar en la plataforma la evaluación de PCI DSS con un QSA o un SAQ?
+
+Hoy no. PCI DSS todavía no se puede activar como certificación: no tiene setup guiado ni catálogo de requisitos cargado, y la plataforma no genera el cuestionario de autoevaluación (SAQ), el informe de cumplimiento (ROC) ni la atestación (AOC).
+
+La plataforma ya reconoce el marco y tiene reglas preparadas para cuando se habilite. Si tu organización tiene una evaluación de PCI DSS por delante, consúltalo con soporte antes de planificarla en Vigia.
+
+*Aplica a: PCI DSS.*
+
+### ¿Cómo descargo desde el Centro de Comando el informe de una auditoría para el expediente?
+
+En la pestaña «Paquete» eliges la auditoría y usas «Descargar informe (PDF)». En la pestaña «Auditorías» planificas una nueva auditoría interna y abres Etapa 1, Etapa 2, vigilancia, el calendario, las solicitudes, la validación de evidencias, el organismo certificador y el equipo auditor.
+
+«Resumen» muestra qué hacer ahora y qué tan lista está la organización para la auditoría externa; en la pestaña «Requisitos», «Ir» te lleva a cada requisito pendiente. Si una pestaña no pudo consultar su información lo dice y te deja reintentar: nunca muestra un cero ni una lista vacía en su lugar.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, ISO 22301.* *Dónde se hace: Centro de Comando.*
+
+### ¿Por qué no puedo aprobar el snapshot del Trust Score?
+
+Primero hay que activar el Trust Score con «Activar Trust Score»; hasta entonces «Generar snapshot» está deshabilitado. El snapshot nace como borrador en la pestaña Snapshots, donde se aprueba o se descarta. «Aprobar» se deshabilita si no hay puntaje o si quedan bloqueos, y la pantalla lista sus motivos bajo «Todavía no se puede aprobar».
+
+Al aprobarlo queda inmutable, reemplaza al snapshot vigente y se publica en el Trust Center por 90 días, con la aprobación registrada a tu nombre. Un control sin verificar cuenta como no cumplido, y el puntaje no equivale a una certificación. Si el Trust Score no aplica a la certificación activa, la pantalla lo dice.
+
+*Dónde se hace: Trust Score.*
+
+### ¿Por qué no puedo emitir la matriz de requerimientos para un cliente?
+
+«Emitir matriz» se habilita cuando filtras por un cliente: la matriz es de un cliente a la vez. Además, cada requerimiento tiene que quedar mapeado a tus controles. «Proponer mapeo con Wigi» deja propuestas que una persona aplica, con o sin observaciones, o descarta, y «Mapear a mano» sirve cuando la propuesta no acierta. Mientras nadie apruebe un mapeo, el requerimiento figura «Sin mapeo aprobado».
+
+Los requerimientos se importan desde un cuestionario recibido, sin duplicarse si lo importas dos veces, o se agregan uno por uno. La cobertura sale de la evidencia de los controles, no se declara. Si no se pudieron leer los requerimientos, los indicadores quedan en «—» y la pantalla ofrece Reintentar. Las matrices emitidas se descargan en PDF.
+
+*Dónde se hace: Requerimientos de clientes.*
+
+### ¿Qué es el periodo auditado y dónde lo declaro?
+
+Es el rango de fechas que va a mirar el auditor. La plataforma lo usa para dos cosas: la prueba de un control sólo considera evidencia de ese rango, y la revisión que Wigi hace de cada archivo avisa cuando un documento queda fuera.
+
+Se declara una vez por certificación, en la tarjeta «Periodo auditado»: está en la prueba de cada control y, cuando la certificación pasa por una auditoría externa, también en la pestaña del camino del Centro de Comando. Si todavía no está declarado, la tarjeta viene con una sugerencia: termina en la próxima auditoría agendada o, si no hay, en la fecha objetivo de la certificación, y empieza doce meses antes. Revísala, corrígela si hace falta y confírmala con «Declarar periodo»; el rango no puede pasar de 36 meses. Puedes cambiarlo después con «Cambiar».
+
+Si la tarjeta dice que no pudo consultar el periodo, la lectura falló: no significa que esté sin declarar.
+
+*Dónde se hace: Controles.*
+
+## Privacidad y datos personales
+
+### ¿Qué es el registro de actividades de tratamiento (RAT) y para qué marcos se usa?
+
+Es el inventario de los tratamientos de datos personales de la organización: finalidad, base legal, titulares, categorías de datos, destinatarios, conservación y transferencias. En Vigia es la base de los demás módulos de privacidad con la Ley 21.719, el GDPR, la LGPD, la LFPDPPP e ISO 27701; con la LFPDPPP la pantalla lo llama «Inventario de tratamientos», y las bases legales y referencias salen del marco de tu certificación activa.
+
+El registro es de la organización, no de una certificación: cada actividad muestra su origen, así que revisa si ya existe antes de crear otra. Si se completó el paso de privacidad del setup, ese inventario ya está copiado en el RAT, y Vigia calcula sola si cada actividad está en borrador, incompleta o completa.
+
+*Aplica a: Ley 21.719, GDPR, LGPD, LFPDPPP, ISO 27701.* *Dónde se hace: Registro de Actividades (RAT).*
+
+### ¿Por qué aparece un sistema de IA en la Bandeja Discovery del RAT?
+
+Porque el registro de sistemas de IA dice que trata datos personales y ninguna actividad del RAT lo cubre. Entra cuando algún componente del sistema trata datos personales o usa una fuente de Data Discovery con datos personales, y la tarjeta dice además si decide sobre personas o usa características protegidas. Un sistema del que nadie declaró si trata datos personales se lista aparte: no cuenta como cubierto ni como libre de datos personales.
+
+Puedes vincularlo a una actividad que ya lo cubre, descartarlo o pedir a Wigi que redacte la actividad. El borrador trae la finalidad, la base legal, los titulares y, si el sistema decide sobre personas, la lógica de la decisión y cómo se opone el titular: sin esos dos datos no se aplica. Los proveedores con acuerdo de tratamiento vigente entran como encargados; los que no lo tienen quedan anotados en la actividad hasta que registres el acuerdo. La actividad nace en borrador y, si trata datos sensibles o decide sobre personas, Vigia pide a Wigi una propuesta de evaluación de impacto. Si no pudimos leer el registro de IA, la bandeja lo dice en vez de mostrarse vacía.
+
+*Aplica a: Ley 21.719, GDPR, LGPD, LFPDPPP, ISO 27701.* *Dónde se hace: Registro de Actividades (RAT).*
+
+### ¿En qué plazo hay que comunicar una brecha de datos personales?
+
+Depende de la ley de tu certificación activa, y Vigia ajusta el plazo solo. Con el GDPR calcula 72 horas desde que se conoce la brecha, con cuenta regresiva, hacia la autoridad de control; con la LGPD indica 3 días hábiles hacia la ANPD, como estimación que no descuenta feriados; con la Ley 21.719 la comunicación a la APDP es sin dilaciones indebidas y la pantalla muestra «Sin plazo tasado»; con la LFPDPPP el aviso es de inmediato a las personas titulares afectadas. En ISO 27701 rige el plazo de la ley que la certificación declare.
+
+Wigi puede sugerir si la brecha es reportable y su severidad, pero no guarda nada. Registrar la brecha, cambiar su estado y decidir la notificación le corresponde al DPO o al oficial de privacidad de la organización.
+
+*Aplica a: Ley 21.719, GDPR, LGPD, LFPDPPP, ISO 27701.* *Dónde se hace: Brechas de Privacidad.*
+
+### ¿Si la lista de brechas aparece vacía, significa que no hay brechas?
+
+Sólo si dice «Sin brechas registradas»: eso significa que no hay brechas con los filtros que elegiste. Si en cambio ves «No pudimos consultar el registro de brechas», la consulta falló y puede haber brechas que no se están mostrando.
+
+En ese caso usa «Reintentar» y no informes que la organización no tiene brechas. Lo mismo vale para el registro de actividades y las evaluaciones de impacto: «no pudimos consultar» nunca es un cero.
+
+*Aplica a: Ley 21.719, GDPR, LGPD, LFPDPPP, ISO 27701.* *Dónde se hace: Brechas de Privacidad.*
+
+### ¿Qué derechos ARCO pueden ejercer los titulares y en cuánto tiempo hay que responder?
+
+En Chile, con la Ley 21.719, son los derechos ARCO+: acceso, rectificación, cancelación o supresión, oposición, portabilidad, bloqueo y no ser objeto de decisiones automatizadas, con 30 días para responder. En México, con la LFPDPPP, son acceso, rectificación, cancelación y oposición más la revocación del consentimiento, con 20 días para responder, prorrogables por otros 20.
+
+El tipo de solicitud y el plazo salen del marco de tu certificación activa. Al entrar una solicitud con el texto del titular, Wigi propone cómo encaminarla (tipo de derecho, duplicadas, actividades del RAT). Para pasarla a «En proceso» hay que dejar evidencia de la identidad, y Wigi redacta la respuesta, que revisa y aprueba el DPO.
+
+*Aplica a: Ley 21.719, LFPDPPP.* *Dónde se hace: Derechos del Titular.*
+
+### ¿Qué derechos del interesado o del titular gestiona Vigia y con qué plazo de respuesta?
+
+Con el GDPR son los derechos del interesado: acceso, rectificación, supresión, limitación del tratamiento, portabilidad, oposición y no ser objeto de decisiones automatizadas; Vigia cuenta 30 días para responder, prorrogables 60. Con la LGPD son los derechos del titular: confirmación del tratamiento, acceso, corrección, anonimización, bloqueo, eliminación, portabilidad, información sobre el uso compartido y sobre la posibilidad de no consentir, y revocación del consentimiento, con 15 días para responder.
+
+Cada solicitud pasa por recibida, verificación y en proceso, y termina resuelta o rechazada. Al entrar, Wigi lee lo que escribió el titular y propone cómo encaminarla; nada se aplica sin que alguien lo acepte. Para resolverla hacen falta la nota de resolución, la evidencia y la lista de verificación sin pendientes.
+
+*Aplica a: GDPR, LGPD.* *Dónde se hace: Derechos del Titular.*
+
+### ¿Cómo pueden los titulares presentar una solicitud de derechos sin tener cuenta?
+
+Con el formulario público: en «Derechos del Titular», la tarjeta «Formulario público» permite crear el enlace, copiarlo, pausarlo, reactivarlo o generar uno nuevo. La persona completa el formulario sin cuenta, pasa una verificación anti-spam y confirma su correo, y el plazo de respuesta corre desde esa confirmación. Lo que escribe queda guardado tal cual en la solicitud, y Wigi la analiza cuando confirma el correo.
+
+Después puede seguir sus solicitudes y gestionar sus preferencias. Con ISO 27701, el formulario no recibe solicitudes hasta que la certificación declare su ley de privacidad.
+
+*Aplica a: Ley 21.719, GDPR, LGPD, LFPDPPP, ISO 27701.* *Dónde se hace: Derechos del Titular.*
+
+### ¿Qué hace el triaje de solicitudes de titulares?
+
+Cuando entra una solicitud con el texto del titular, Wigi lo lee y propone cómo encaminarla: el tipo de derecho correcto, otro derecho que también ejerce, si no es una solicitud de derechos (citando la frase del texto que lo muestra), si los datos son de un cliente que les encarga el tratamiento y qué actividades del RAT toca. Además avisa de posibles duplicadas del mismo titular en los últimos 90 días y del siguiente paso, como pedir la verificación de identidad.
+
+Nada se aplica solo: cada sugerencia se acepta o se descarta con un motivo, y aceptar usa el mismo camino que la edición manual. Si el titular ejerce otro derecho, se crea una solicitud derivada con el mismo plazo. La IA no recibe el nombre, el correo ni el identificador del titular (como el RUT), y un texto que no está en español no se analiza. Si el análisis falla, la tarjeta dice «No pudimos analizar» y permite reintentar; nunca lo muestra como si no hubiera sugerencias.
+
+*Aplica a: Ley 21.719, GDPR, LGPD, LFPDPPP, ISO 27701.* *Dónde se hace: Derechos del Titular.*
+
+### ¿Quién aprueba una evaluación de impacto de privacidad y qué hace Wigi en ella?
+
+La aprueba el DPO de la organización: desde «En revisión» la deja aprobada, rechazada o con mitigaciones requeridas, con su fundamento. Antes de eso, el panel de actividades sensibles sin evaluación muestra las que la necesitan, «Proponer con Wigi» redacta el borrador en segundo plano y «Calcular score con Wigi» propone los puntajes; una propuesta nunca queda aprobada sola.
+
+Para enviarla a revisión hacen falta los cuatro puntajes: necesidad, proporcionalidad, riesgo y medidas. Con la LFPDPPP la pantalla la llama «Análisis de riesgo del tratamiento».
+
+*Aplica a: Ley 21.719, GDPR, LGPD, LFPDPPP, ISO 27701.* *Dónde se hace: Evaluaciones de Impacto (DPIA).*
+
+### ¿Por qué con ISO 27701 no veo plazos legales y el formulario público no recibe solicitudes?
+
+Porque ISO 27701 no es una ley: remite a la ley de privacidad que aplique, y la certificación tiene que declararla junto con el rol de la organización respecto de los datos (responsable, encargado o ambos). Mientras no se declaren, no hay plazos legales, los derechos y las bases legales son genéricos y el formulario público no recibe solicitudes.
+
+La plataforma propone la ley y el rol con lo que ya está cargado, y la organización los confirma con «Declarar» en la tarjeta del setup. Si tu rol no puede declararlos, prepara la información y pídele a la organización que lo haga.
+
+*Aplica a: ISO 27701.* *Dónde se hace: Setup Certificación.*
+
+### ¿Tengo que rehacer para ISO 27701 lo que ya hice en mi certificación ISO 27001?
+
+No. El setup de ISO 27701 muestra «Reutiliza lo que ya declaraste en tus otras certificaciones» y te ofrece traer cada paso compartido con «Usar este contenido». Lo copiado queda vinculado a su origen: si el origen cambia, el paso lo avisa y puedes resincronizarlo, y si el paso ya está firmado tienes que abrir una nueva versión.
+
+Como su Tabla A.3 extiende el Anexo A de ISO 27001, los controles se pueden adoptar con su origen, pero el estado no se copia: se vuelve a calcular desde la evidencia. Si la plataforma no pudo leer la certificación de origen lo dice, y eso no significa que no haya nada que reutilizar.
+
+*Aplica a: ISO 27701.* *Dónde se hace: Setup Certificación.*
+
+### ¿Por qué no aparece «Generar plan anual base» en el Plan Anual de Privacidad?
+
+Porque el plan base y el Plan de Adecuación crean actividades propias de la Ley 21.719 (sus artículos, la agencia de protección de datos y la entrada en vigencia), así que sólo se ofrecen cuando esa es la ley que rige el plan. Con otro marco de privacidad, usa «Sugerir con Wigi» para que proponga las actividades del marco activo, o créalas a mano con responsable, fecha, prioridad y estado.
+
+Las sugerencias de Wigi no crean actividades: tú decides cuáles agregar. Puedes planificar el año en curso y los dos siguientes. Si la pantalla dice que no pudo consultar las actividades del año, que no aparezcan no significa que no existan, y los generadores quedan bloqueados hasta que la consulta responda.
+
+*Aplica a: Ley 21.719, GDPR, LGPD, LFPDPPP, ISO 27701.* *Dónde se hace: Plan Anual de Privacidad.*
+
+### ¿Mi equipo ve las respuestas que doy en el Autodiagnóstico Ley 21.719?
+
+No. Las respuestas se guardan sólo en este navegador, por certificación: no se comparten con tu equipo, no quedan en la bitácora y se pierden si cambias de equipo o borras los datos del navegador. Para compartir el resultado, usa «Exportar / Imprimir», que abre el diálogo de impresión, y guárdalo como PDF desde ahí.
+
+«Reiniciar» borra las respuestas después de pedirte confirmación. El autodiagnóstico es orientativo, con 50 preguntas en 10 secciones: no constituye asesoría legal ni evidencia de cumplimiento.
+
+*Aplica a: Ley 21.719.* *Dónde se hace: Autodiagnóstico Ley 21.719.*
+
+### ¿Por qué no puedo generar algunos de los reportes de privacidad?
+
+El reporte completo, el de brechas y el de solicitudes de derechos copian al PDF datos personales de titulares, así que sólo los genera un rol con acceso a esos registros. Sin él, esos botones aparecen deshabilitados con el motivo; los reportes del registro de tratamientos, de las evaluaciones de impacto y de los encargados siguen disponibles.
+
+Los reportes se generan en el momento con los registros de la certificación activa. Si la generación falla, el aviso lo dice, y si fue por permisos, lo indica. Hoy el encabezado y las referencias del reporte están redactados para la Ley 21.719, aunque el marco activo sea otro de privacidad.
+
+*Aplica a: Ley 21.719, GDPR, LGPD, LFPDPPP, ISO 27701.* *Dónde se hace: Reportes de Privacidad.*
+
+## Incidentes y vulnerabilidades
+
+### ¿Por qué el incidente dice «Cierre bloqueado»?
+
+Porque al expediente le falta algo. El panel «Preparación para el cierre» muestra cuántos requisitos están completos y cada pendiente tiene un «Resolver» que te lleva a su pestaña: responsable asignado, causa raíz y lecciones aprendidas, impacto evaluado, al menos una evidencia y una correlación, el postmortem si la severidad es alta o crítica, los pasos del playbook si se aplicó uno y la notificación a la autoridad de ciberseguridad cuando corresponde.
+
+Si ves «Cierre bloqueado» sin ese panel, no se pudieron consultar los requisitos: cierra y vuelve a abrir la ficha. Aunque el expediente esté completo, cerrar el incidente le corresponde al cliente.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Incidentes.*
+
+### ¿Wigi puede escribir el postmortem y las notificaciones de un incidente?
+
+Propone los borradores y una persona los revisa. En la pestaña Borradores, «Generar postmortem con Wigi» arma el documento, que corriges y guardas con «Guardar y completar postmortem»; si detecta menciones dudosas, te pide revisarlas antes. Dar el postmortem por completado es decisión del cliente: prepáralo y pídeselo, aunque hoy la plataforma no te lo impida.
+
+Los borradores de notificación tardan cerca de un minuto, corren en segundo plano y avisan por correo al terminar. Hoy citan normativa chilena: si el cliente opera bajo otra ley, adáptalos. La decisión de notificar y la validez legal son de los responsables del cliente.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Incidentes.*
+
+### ¿Qué efecto tiene vincular un control a un incidente?
+
+Depende del tipo de vínculo, porque alimenta el estado del control. «Control falló» impide que el control quede implementado mientras el incidente no se cierre con su postmortem. «Contuvo el incidente» y «Recomendado» son contexto y no acreditan nada. «Lección aprendida» acredita el control de aprendizaje de incidentes del marco, siempre que el postmortem esté completo con sus lecciones.
+
+En Correlaciones sólo aparecen controles de la certificación activa, y cada vínculo dice qué efecto tiene. «Reglas» y «Analizar con Wigi» proponen vínculos con riesgos, gaps, tareas y vulnerabilidades, y una persona acepta o ignora cada uno.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Incidentes.*
+
+### ¿A quién se notifica un incidente cuando la certificación es SOC 2?
+
+La pestaña Regulatorio se adapta al marco activo. Con SOC 2 indica como destinatarios a las partes afectadas según los compromisos de servicio, cita los criterios CC7.3 a CC7.5 y fija el plazo según los compromisos contractuales con los clientes.
+
+Como esos criterios no fijan horas, la plataforma no muestra una cuenta regresiva: revisa los contratos del cliente para saber el plazo real. Decidir si se notifica le corresponde al cliente; tú preparas el expediente.
+
+*Aplica a: SOC 2.* *Dónde se hace: Incidentes.*
+
+### ¿Por qué no puedo marcar como arreglado un grupo de vulnerabilidades?
+
+Porque «Verificado» sólo lo pone la plataforma. Tú usas «Marcar arreglo aplicado» (si no quedan pasos pendientes en el playbook) y el grupo pasa a «Esperando verificación»; queda verificado cuando un escaneo completo posterior ya no ve los hallazgos. Un escaneo que no declaró qué miró no cierra nada, y «No pudimos verificar» significa que falta un escaneo completo después del arreglo.
+
+Los grupos manuales y los chequeos de exposición no tienen escáner: los verifica con «Atestación de una segunda persona» alguien distinto de quien aplicó o cerró los hallazgos, adjuntando evidencia. Si un hallazgo reaparece en un grupo verificado, el grupo vuelve a «Abierto».
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, ISO 22301, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Vulnerabilidades y Amenazas.*
+
+### ¿Quién aprueba una excepción de vulnerabilidad y cuánto puede durar?
+
+La pides con una «Justificación» y una fecha de vencimiento (la «Medida compensatoria» es opcional), y la aprueba una persona del cliente distinta de quien la pidió: dirección, CISO, cumplimiento o gestión de riesgos. Aunque la pantalla te muestre «Aprobar», «Rechazar» o «Revocar», la plataforma los rechaza para el implementador.
+
+Por defecto el plazo máximo es 30 días para un P1, 90 para severidad crítica o alta y 365 para el resto, salvo que la política de vulnerabilidades aprobada diga otra cosa. La excepción vence sola en su fecha, y se revoca sola si entra al grupo un hallazgo de explotación activa que no cubría.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, ISO 22301, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Vulnerabilidades y Amenazas.*
+
+### ¿Por qué una amenaza explotada aparece como «No pudimos evaluar»?
+
+Casi siempre porque nadie revisó el stack tecnológico de la organización. La plataforma cruza las amenazas explotadas contra ese stack con reglas fijas, y mientras el stack no esté revisado no puede afirmar si te afectan. Wigi propone tecnologías a partir de los activos y proveedores; tú puedes «Confirmar», «Descartar» o «Agregar tecnología».
+
+Una vez evaluada, la alerta queda como encontrada por tu escáner o como probable porque está en tu stack. «No usamos esto» descarta la tecnología y cierra la alerta; «Archivar» la saca de la bandeja sin afirmar nada sobre el stack. Ninguna de las dos aparece mientras el escáner siga viendo la vulnerabilidad abierta.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, ISO 22301, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Vulnerabilidades y Amenazas.*
+
+### ¿Cómo registro las vulnerabilidades de un informe de prueba de penetración?
+
+En Vulnerabilidades y Amenazas usa «Importar informe de pentest» y sube el informe en PDF o Word, de hasta 25 MB. Wigi lo lee en segundo plano y te propone cada vulnerabilidad con su severidad, los activos y los CVE que nombra el informe, la remediación que recomienda y la frase de donde la sacó.
+
+Nada se registra hasta que tú aplicas cada propuesta, tal cual o corregida; lo aplicado queda como vulnerabilidad descubierta por una prueba de penetración en la certificación activa. Lo que no corresponde se descarta con un motivo. Que Wigi no encuentre vulnerabilidades es un resultado; que la lectura falle o que dejemos de poder consultarla no lo es.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, ISO 22301, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Vulnerabilidades y Amenazas.*
+
+## Personas y formación
+
+### ¿Tengo que pedirle a cada persona que lea las políticas aprobadas?
+
+No. La lectura obligatoria nace sola cuando la organización aprueba o publica una política, firma un documento del setup o activa un procedimiento, y se asigna a las personas del organigrama que corresponde. La plataforma la recuerda en el resumen de los martes y jueves, y un borrador nunca genera lecturas.
+
+En «Cobertura» ves, por documento y versión, cuántas personas aceptaron, cuántas faltan y cuántas vencieron. Quien no tiene correo en el organigrama no recibe los avisos.
+
+*Dónde se hace: Cobertura.*
+
+### ¿Qué queda registrado cuando alguien confirma una lectura y qué pasa si el documento cambia de versión?
+
+La persona tiene que llegar al final del documento para que se habilite «Confirmar lectura», y la confirmación queda con su nombre, la fecha y la versión leída. Cuando se aprueba una versión nueva, la obligación se vuelve a abrir y la persona tiene que confirmar otra vez.
+
+Esa es la evidencia de concienciación que revisa el auditor: quién leyó qué documento, en qué versión y cuándo.
+
+*Dónde se hace: Mis lecturas.*
+
+### ¿Quién debe leer un procedimiento y puedo quitar a alguien de la lista?
+
+La audiencia la calcula la plataforma: lo deben leer quienes deben alguna política vinculada al procedimiento o, si no hay ninguna, el área de su dueño. En «Cobertura» puedes agregar personas, con un motivo opcional, o quitarlas.
+
+Para quitar a alguien el motivo es obligatorio, porque el auditor lo verá como justificación. Los procedimientos tienen 30 días de plazo de lectura.
+
+*Dónde se hace: Cobertura.*
+
+### ¿Cómo funciona el quiz que propone Wigi sobre un documento y es obligatorio?
+
+Es opcional. En «Cobertura», «Proponer quiz con Wigi» genera preguntas ancladas a frases literales del texto vigente; Wigi descarta las que no puede verificar contra el texto y, si quedan menos de 3, no guarda nada. Una persona revisa la propuesta y elige «Aplicar quiz» o «Descartar».
+
+Quien lee responde el quiz después de confirmar la lectura, con 3 intentos cada 24 horas, y aprueba con 66 %. Si el texto del documento cambia, el quiz queda «Desactualizado» y hay que volver a proponerlo.
+
+*Dónde se hace: Cobertura.*
+
+### ¿Por qué una capacitación aparece bloqueada?
+
+Porque los niveles se desbloquean en orden. El «Nivel 1 · Base» es obligatorio para todos y tiene plazo; el «Nivel 2 · Intermedio» y el «Nivel 3 · Avanzado» se habilitan cuando el anterior está completo, con todo leído y el quiz aprobado.
+
+En «Programa» la organización define quién debe completar los niveles 2 y 3, por rol o departamento. El material sale de las certificaciones activas de la organización: no se arma a mano.
+
+*Dónde se hace: Capacitaciones.*
+
+### ¿Qué es el escenario semanal y quién lo recibe?
+
+Es una situación «¿qué harías?» que llega por correo una vez por semana, redactada por Wigi a partir de las políticas y procedimientos vigentes de tu organización. Se responde en un minuto y sin iniciar sesión, y al responder se ve cuál era la mejor opción y por qué. Es un refuerzo voluntario: no crea asignaciones ni vencimientos, y cada persona puede dejar de recibirlo desde el propio correo.
+
+Quien gobierna el programa lo prepara en la pestaña «Programa»: «Proponer lote con Wigi» genera los escenarios, una persona los revisa, descarta los que no quiere y aplica el lote; después elige el día y la hora, y al activar el envío la pantalla dice a cuántas personas les llegará. Sale uno por semana, de lunes a viernes, a las personas activas con correo. Cuando quedan pocos en cola, la plataforma avisa a quienes gobiernan el programa para que propongan otro lote.
+
+Si la pantalla dice que no pudo comprobar si Wigi ya está preparando un lote, recarga antes de pedir otro: la consulta falló y puede haber uno en curso. La tabla de envíos muestra además cuántos correos entregó y cuántos rebotó el servicio de correo; «Sin dato» significa que ese resultado no se recibió, no que no llegaron.
+
+*Dónde se hace: Capacitaciones.*
+
+### ¿Tengo que volver a cargar en el plan de capacitación lo que ya declaré en el setup?
+
+No. «Nueva actividad» abre primero «Traer desde el setup» para reutilizar las actividades que el setup ya declaró; después defines la audiencia y las sesiones por mes. Si el setup no declara actividades, la pantalla lo dice y puedes crearla a mano.
+
+Una actividad e-learning crea asignaciones obligatorias, y el estado de cada sesión se calcula desde la evidencia, no se cambia a mano. Si ves «No pudimos leer el setup», la consulta falló: reintenta antes de crear la actividad desde cero.
+
+*Dónde se hace: Plan de Capacitación.*
+
+### ¿Quién puede lanzar una simulación de phishing y cuándo cuenta un clic?
+
+La lanza el CISO de la organización o el superadministrador. El asistente pide una declaración legal, la plantilla, una variante que Wigi redacta y una persona aprueba, y la audiencia; lanzar es enviar en ese momento, no se agenda.
+
+Un clic cuenta sólo cuando la persona abre la página de aviso en su navegador: «Abierto sin confirmar» suele ser el filtro de correo y no cuenta. Quien confirma el clic recibe una capacitación correctiva con 7 días de plazo.
+
+*Dónde se hace: Simulación de Phishing.*
+
+### ¿Cómo cargo el organigrama si ya tengo la planilla de RRHH?
+
+Con «Importar Archivo» en el organigrama: acepta .xlsx, .xls y .csv con cualquier formato, detecta pestañas y cabecera, te deja relacionar columnas y decidir por cada departamento si usar uno existente o crear uno nuevo. Cada persona se actualiza por su correo, y al final ves cuántas se crearon, actualizaron u omitieron.
+
+El organigrama es de la organización y vale para todos los marcos: de ahí salen responsables, firmantes y las personas a quienes se asignan lecturas y capacitaciones. Hoy el rol de implementador no puede abrir esta pantalla; si es tu caso, pídele al administrador de la organización que haga la carga.
+
+*Dónde se hace: Organigrama.*
+
+### ¿En qué se diferencian las lecturas obligatorias de las capacitaciones?
+
+Son obligaciones distintas. Una lectura obligatoria es un documento del sistema de gestión, como una política, un procedimiento o un documento firmado del setup, que la persona tiene que leer y confirmar; una capacitación de Awareness es contenido para aprender, con su avance y sus quizzes. Por eso viven en secciones separadas del menú.
+
+Al entrar a Lecturas obligatorias se abre «Mis lecturas». «Confirmar lectura» se habilita al llegar al final del documento, y el quiz de comprensión, cuando la lectura lo tiene, es opcional. Si la pantalla dice «No pudimos consultar tus lecturas», no significa que no tengas lecturas pendientes: reintenta.
+
+*Dónde se hace: Lecturas obligatorias.*
+
+### ¿Qué hago si no veo mi progreso de formación?
+
+Depende de lo que diga la pantalla. Si dice que todavía no tienes una ficha de empleado, pídesela a quien administra el organigrama: los puntos, el rango, las insignias y la racha se llevan sobre esa ficha. Si dice «No pudimos consultar tu progreso», la consulta falló y los indicadores quedan en «—», no en cero: usa Reintentar.
+
+El ranking se consulta aparte: si sólo él falla, tu progreso personal igual se muestra. Compara equipos por promedio por persona, nunca muestra personas, aparece sólo si tu organización lo habilitó, y un equipo con menos integrantes que el mínimo no entra.
+
+*Dónde se hace: Mi progreso.*
+
+### ¿Quién puede crear un proceso de incorporación o de salida y quién completa su checklist?
+
+Crear y eliminar procesos con «Nuevo registro», ver a todo el personal y usar las pestañas de Activos y Accesos es de superadministración, dirección y RRHH. Cualquier otra persona ve sólo su propio proceso y puede ir completando sus ítems: cada uno se cierra con un enlace a su evidencia o como no aplica, con una justificación obligatoria, y se puede deshacer.
+
+En la salida, los accesos se revocan desde la pestaña Accesos, de a uno o todos juntos. La pantalla contrasta lo declarado con los sistemas conectados: te avisa si alguna cuenta sigue activa en el origen y, si no pudo verificarlo, lo dice en vez de darlo por revocado.
+
+*Dónde se hace: Onboarding &amp; Offboarding.*
+
+### ¿Por qué hay personas en «Sin evidencia» en el Score de Seguridad?
+
+Porque la plataforma no le inventa un nivel de riesgo a quien no tiene datos suficientes para evaluarlo. En vez de asignarle Alto, Medio o Bajo, la deja en «Sin evidencia» y la cuenta aparte: el encabezado dice cuántas personas se evaluaron y cuántas quedaron sin evidencia suficiente. No es lo mismo que riesgo bajo: es una persona que todavía no se pudo medir.
+
+Si la pantalla dice «No pudimos consultar la postura de concienciación», la consulta falló: los contadores quedan en «—», no en cero, y puedes reintentar.
+
+*Dónde se hace: Score de Seguridad.*
+
+## Inteligencia artificial
+
+### ¿Wigi puede cambiar datos de mi organización sin que nadie lo apruebe?
+
+No. Wigi redacta y sugiere, y lo que propone queda como propuesta hasta que una persona la revisa: pasa a aplicada si alguien la acepta o a descartada si alguien la rechaza. La IA nunca se aplica sola sobre documentos firmados ni sobre un estado ya aprobado.
+
+La plataforma sí deriva por su cuenta lo que sale de la evidencia, como el estado automático de un control, porque eso es un cálculo y no una decisión. Cuánto puede hacer cada agente sin pedir permiso se configura en Autonomía de Agentes.
+
+### ¿De dónde saca Wigi sus respuestas sobre mi organización?
+
+De los datos de tu propia organización en Vigia: políticas, controles, evidencias, riesgos y lo que se cargó en el setup, y cita de dónde sale cada respuesta para que puedas comprobarla. Lo que Wigi recuerda de tu organización (hechos, objetivos y decisiones) se revisa, corrige o borra en «Lo que Wigi sabe de tu organización», dentro de Autonomía de Agentes, que ven la dirección, el CISO, el oficial de cumplimiento y el super administrador.
+
+Si una respuesta no trae fuente o dice que no encontró datos, compruébalo en el módulo correspondiente: que una consulta falle no es lo mismo que no tener información.
+
+*Dónde se hace: Autonomía de Agentes.*
+
+### ¿Qué hago con los hallazgos del validador de coherencia?
+
+Revísalos: son observaciones, con severidad de crítica a baja, sobre contradicciones o vacíos en el setup y en los documentos que genera la plataforma, y toda salida de la IA pasa por el validador antes de considerarse lista. Para cada uno puedes corregir el contenido y volver a auditar, marcarlo como falso positivo indicando el motivo o, si es crítico o alto y no se va a corregir, aceptarlo con una excepción formal.
+
+Un falso positivo deja de contar en el total, pero queda registrado y el auditor externo lo ve en el reporte: no sirve para ocultar hallazgos reales.
+
+*Dónde se hace: Setup Certificación.*
+
+### ¿Quién aprueba las tareas que propone un workflow y puedo probarlo antes de activarlo?
+
+Las aprueba el aprobador que fijes en el workflow o, si queda vacío, el responsable de la matriz RACI; nunca quien lo armó, por segregación de funciones. Hoy las propuestas de un workflow crean tareas asignadas a ese aprobador, que las aplica o las descarta.
+
+Antes de activarlo usa «Ensayar sin guardar»: corre de verdad, pero no avisa, no propone ni cuenta en el consumo del mes. Cada corrida termina con hallazgos, sin novedades o «No pudimos completarla», y una fuente que no responde nunca se informa como sin novedades.
+
+*Dónde se hace: Workflows.*
+
+### ¿Puedo enviar tal cual las respuestas que Wigi redactó para el cuestionario de seguridad de un cliente?
+
+No sin revisarlas. Cada respuesta lleva una insignia de respaldo («Respaldada», «Respaldo parcial», «Sin respaldo verificable» o «No pudimos comprobar las fuentes») y cada cita indica si está vigente; «No pudimos comprobar las fuentes» significa que falló la verificación, no que falte respaldo. Si exportas con respuestas sin respaldo, la plataforma te pregunta antes de seguir.
+
+El xlsx descargado incluye el último borrador de cada pregunta aunque no esté aprobado, y lo que se aprueba entra a la biblioteca que Wigi reutiliza en los próximos cuestionarios. Por eso conviene que la aprobación final la haga alguien de la organización.
+
+*Dónde se hace: Cuestionarios (Wigi).*
+
+### ¿Puedo dejar que los agentes de la plataforma actúen sin pedir permiso?
+
+En parte. En Autonomía de Agentes eliges, acción por acción, «Lo hace solo», «Lo propone» o «Solo avisa»; sin configuración, lo que se deriva de evidencia o del organigrama lo hace solo y las decisiones se proponen. Aprobar la eficacia de un control, declarar su aplicabilidad y agregar un subencargado nunca pueden quedar en «Lo hace solo». Lo deciden la dirección, el CISO, el oficial de cumplimiento o el super administrador: sólo esos roles ven la pantalla y pueden cambiar un nivel.
+
+Hoy el nivel elegido cambia lo que hacen cinco acciones: marcar un control como implementado por evidencia, agregar subencargados detectados al revisar un proveedor, declarar la vigencia de un documento con la fecha leída en él, registrar en el inventario un sistema de IA detectado con certeza alta y enviar una solicitud de evidencia que redactó la IA a la persona responsable del control. Las tres últimas empiezan en «Lo propone»: la plataforma no se sube la autonomía sola. En las demás acciones el ajuste se guarda, pero todavía no cambia el comportamiento del agente.
+
+*Dónde se hace: Autonomía de Agentes.*
+
+### ¿Qué diferencia hay entre trabajar con ISO 42001 y con NIST AI RMF en Vigia?
+
+ISO 42001 es certificable: tiene sistema de gestión, una Declaración de Aplicabilidad de su propio Anexo A y auditoría de certificación, y esa SoA nunca se mezcla con la de ISO 27001. NIST AI RMF es un marco voluntario que Vigia trabaja como evaluación: su setup tiene siete pasos, sin SoA ni auditoría de certificación.
+
+Los dos comparten el registro de Gobernanza de IA: inventario de sistemas, clasificación, evaluación de impacto, riesgos y decisiones. Cada marco pide campos distintos en la ficha del sistema, y los ves en «Completitud de la ficha».
+
+*Aplica a: ISO 42001, NIST AI RMF.* *Dónde se hace: Sistemas de IA.*
+
+### ¿Por qué Wigi no propone la clasificación de riesgo ni los riesgos de mi sistema de IA?
+
+La clasificación, porque los catálogos en que se apoya todavía no están confirmados por el especialista. Los dos esquemas, General y «Lente EU AI Act», lo indican en pantalla y, mientras tanto, Wigi no propone en ellos: clasifica a mano. Ciertas respuestas de la ficha suben el nivel mínimo; por ejemplo, usar características protegidas obliga a Alto.
+
+«Proponer riesgos con Wigi» necesita amenazas confirmadas por tu organización para ese tipo de sistema. Si la ficha avisa que no las hay, el mismo aviso te lleva a la «Biblioteca de amenazas», donde una persona con rol de edición las confirma; mientras tanto puedes usar «Vincular un riesgo existente». La evaluación de impacto sí se puede pedir con «Proponer con Wigi».
+
+*Aplica a: ISO 42001, NIST AI RMF.* *Dónde se hace: Sistemas de IA.*
+
+### ¿Para qué sirve confirmar una amenaza en la biblioteca de amenazas de IA?
+
+Para decidir de qué puede partir Wigi. La «Biblioteca de amenazas», a la que entras desde Sistemas de IA, lista las amenazas de IA que la plataforma conoce, con el catálogo del que sale cada una y el tipo de sistema al que aplica. Wigi sólo propone riesgos de un sistema a partir de las amenazas que una persona de tu organización confirmó: mientras un tipo de sistema no tenga ninguna, «Proponer riesgos con Wigi» no está disponible en esas fichas.
+
+Confirmar no crea riesgos: las propuestas igual llegan a la bandeja de riesgos para que alguien las apruebe o las descarte. La confirmación vale sólo para tu organización, guarda quién la hizo y cuándo, y se puede retirar; retirarla no cambia los riesgos ni las propuestas que ya existen. Confirma y retira quien tiene rol de edición en gobernanza de IA; el resto sólo ve la lista. Si la pantalla dice «No pudimos consultar la biblioteca de amenazas», la lectura falló: no significa que la biblioteca esté vacía.
+
+*Aplica a: ISO 42001, NIST AI RMF.* *Dónde se hace: Biblioteca de amenazas.*
+
+### ¿Qué miden la tasa de aceptación y la tasa de edición en «Supervisión humana»?
+
+Miden qué pasa con lo que propone la IA después de que una persona lo decide. La tasa de aceptación es la parte de las propuestas decididas que se aplicó; las que siguen esperando y las que la plataforma retiró sola no entran en el cálculo. La tasa de edición es la parte de las aplicadas que alguien cambió antes de aplicarla. Una aceptación muy alta con edición casi nula puede indicar que se aprueba sin revisar, y eso es justo lo que la pantalla permite mostrar o descartar ante un auditor.
+
+La tabla separa cada fuente de propuestas (riesgos, solicitudes de evidencia, controles compensatorios y las demás) y la serie muestra el mes a mes. Las acciones que Wigi propone en el chat cuentan aparte: confirmarla es aceptarla y decirle que no es rechazarla; una propuesta que nadie contestó no entra. Lo que un agente aplicó solo porque su acción está en «Lo hace solo» tampoco entra: nadie lo aceptó. La columna «Desconocido» cuenta las propuestas aplicadas antes de que la plataforma empezara a medir si se editaban: no se sabe si se aplicaron tal cual, así que no cuentan como «tal cual» ni entran en la tasa de edición.
+
+Una tasa en «—» quiere decir que no hay con qué calcularla, no que sea cero. «No se mide» en «Tal cual» o «Editadas» quiere decir que esa fuente no registra si la propuesta se editó. Y si la pantalla avisa que no pudo leer alguna fuente, la nombra: los totales no la incluyen. Si dice «No pudimos consultar», no se pudo leer ninguna.
+
+La pantalla cuenta las propuestas de toda la organización, con cualquier certificación activa; está en el grupo «Usuarios y Administración» del menú.
+
+*Dónde se hace: Supervisión humana.*
+
+### ¿Quién aprueba un sistema de IA para que pase a producción?
+
+La organización. «Aprobar», «Aprobar con condiciones», «Rechazar», «Suspender», «Reactivar» y «Retirar» son decisiones de gobierno que quedan en un registro que no se puede editar, y una aprobación queda pendiente hasta que firman las personas con autoridad según el nivel del sistema. Pasar a evaluación y poner en producción un sistema ya aprobado son pasos operativos que puede hacer quien mantiene el registro.
+
+Si la clasificación vigente excede la tolerancia declarada, la aprobación exige una salida registrada: mitigar, aceptar con fundamento o no desplegar, y con «No desplegar» no se puede aprobar. Si tu rol no decide, prepara la ficha y la evaluación: aunque veas el botón para registrar la decisión, la plataforma rechazará la acción.
+
+*Aplica a: ISO 42001, NIST AI RMF.* *Dónde se hace: Sistemas de IA.*
+
+### ¿Un sistema de IA que propone Wigi entra solo al registro?
+
+No. La bandeja de Propuestas reúne lo que llega de dos fuentes: lo que la organización ya declaró (el inventario, los activos y los hallazgos de proveedores), que Wigi lee con «Proponer sistemas con Wigi», y los conectores de proveedores de modelos ya configurados. Nada de eso cuenta como inventariado hasta que una persona lo aplica.
+
+Un sistema nuevo se aplica con «Revisar y registrar», que abre el formulario prellenado para que completes el responsable; un cambio a un sistema registrado, con «Revisar cambio»; y un componente nuevo, con «Agregar al catálogo», tras confirmar. Lo que no corresponde se descarta con un motivo: no es un sistema de IA, duplicado, ya está retirado u otro, con su detalle. Una fuente que no pudo mirar se muestra con su motivo y no equivale a «sin novedades».
+
+*Aplica a: ISO 42001, NIST AI RMF.* *Dónde se hace: Propuestas.*
+
+### ¿La persona que registró un caso de IA recibe la respuesta cuando lo resuelvo?
+
+Sí, si el caso tiene un correo al cual responder: al resolverlo se le envía la resolución por correo, y al desestimarlo, el motivo. Antes de confirmar, el caso te muestra a qué dirección irá. Si es anónimo o no dejó correo, la pantalla te avisa que la persona no recibirá la respuesta.
+
+Sólo una inquietud interna puede ser anónima. Una apelación exige indicar el sistema y un correo de contacto, justamente porque su resolución tiene que llegarle a la persona. Para resolver se piden el resultado y la resolución; para desestimar, el motivo. Si no se pudieron consultar los casos, la pantalla lo dice: no significa que no haya casos.
+
+*Aplica a: ISO 42001, NIST AI RMF.* *Dónde se hace: Casos de IA.*
+
+## Revisión por la dirección
+
+### ¿Tengo que redactar el acta de la revisión por la dirección?
+
+No la redactas: eliges el período (trimestre, semestre o año) y la plataforma genera el acta con los datos que ya tiene, como acciones anteriores, no conformidades, auditorías, objetivos, indicadores, incidentes, riesgos y estado de las políticas. Es una foto del día en que se genera; mientras está en Borrador, «Regenerar acta …» vuelve a leer los datos, y al enviarla las entradas quedan congeladas.
+
+Cada entrada distingue tres casos: no se pudo leer, el acta es anterior a esa entrada, o se miró y no había nada. «No se pudo leer» no es «no hay»: regenera antes de presentarla. La reunión, las conclusiones y las acciones las registran personas, y deben ser las que la dirección acordó.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, ISO 22301, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Revisión por la Dirección.*
+
+### ¿Por qué no aparece nadie para aprobar el acta de revisión?
+
+El aprobador se elige de la lista de alta dirección, que sale del organigrama: si dice «El organigrama no identifica a nadie como alta dirección…», pídele al cliente que declare a esas personas con el rol de Dirección o un cargo de gerencia general. Sólo el aprobador asignado puede aprobar el acta; ni tú ni otra persona del cliente pueden hacerlo por él.
+
+Si en cambio ves «No pudimos consultar quién es la alta dirección…», la consulta falló y puede haber personas declaradas: usa «Reintentar» antes de pedir cambios en el organigrama.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, ISO 22301, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Revisión por la Dirección.*
+
+### ¿Cómo se decide si un indicador de desempeño está en meta?
+
+Nadie lo declara: sale de la última medición. Queda «En meta» o «Fuera de meta» si la medición está al día; «Sin medición» si nadie midió o no tiene meta; «Medición vencida» si la última superó la frecuencia; y «No pudimos medir» si falló la medición automática, que no es un cero.
+
+Al crearlo, prefiere «Solo, desde la evidencia» cuando haya de dónde sacar el dato. «Proponer indicadores desde procedimientos» hace que Wigi lea los procedimientos vigentes y proponga indicadores, que apruebas uno por uno. Los indicadores alimentan el acta de la revisión por la dirección.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, ISO 22301, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Medición y Desempeño.*
+
+### ¿Hay revisión por la dirección si mi certificación es SOC 2?
+
+Sí: usas la misma pantalla y la misma acta, generada con los datos de la plataforma y aprobada por una persona de la alta dirección. La diferencia es que con SOC 2 la pantalla no cita la cláusula 9.3 ni sus entradas numeradas, porque los criterios de SOC 2 no se numeran así y citarlos sería inventar un requisito.
+
+La evidencia de la reunión (minuta o lista de asistencia, conclusiones y acciones con responsable y plazo) sirve igual como respaldo de la supervisión de la dirección ante la firma auditora.
+
+*Aplica a: SOC 2.* *Dónde se hace: Revisión por la Dirección.*
+
+### ¿Por qué «Exportar reporte» está deshabilitado en Reportes de Cumplimiento?
+
+Porque no hay datos que exportar: hace falta una certificación activa con información cargada y que la consulta haya respondido. Sin certificación seleccionada la pantalla lo indica, y si la carga falla avisa que la fuente no está disponible en vez de mostrar ceros. El informe ejecutivo se exporta sólo en PDF, y esa descarga no se registra en Reportes recientes.
+
+En «Acciones Rápidas» están el Dashboard Ejecutivo, el Análisis de Brechas, el SOA Gap Report, la Cobertura de Políticas y el PDF de Insurance Readiness, con los controles que suelen pedir las aseguradoras de ciberseguro.
+
+*Dónde se hace: Informes.*
+
+## Administración, roles y accesos
+
+### ¿Quién puede invitar usuarios y asignarles un rol?
+
+Sólo el superadministrador de la organización, desde Accesos y Roles: invita, cambia el rol, reenvía la invitación, suspende, reactiva o elimina cuentas. Ningún otro rol, tampoco el implementador, puede dar acceso a la consola; si lo intentas, la plataforma te lo indica.
+
+Desde ahí también se puede invitar a personas del organigrama que todavía no tienen acceso, sin volver a escribir sus datos.
+
+*Dónde se hace: Accesos y Roles.*
+
+### ¿Puedo crear un rol a medida o cambiar los permisos de un rol?
+
+No. Vigia trabaja con roles base que se asignan pero no se crean ni se editan; en «Roles y permisos» puedes ver, en modo lectura, qué permisos tiene cada uno y exportar el catálogo. Los permisos del rol definen qué módulos ve cada persona en el menú.
+
+Antes de asignar un rol, revisa sus permisos para dar sólo lo necesario: por ejemplo, invitar a la certificadora con el rol de auditor externo y no con uno de gestión.
+
+*Dónde se hace: Roles Base Asignables.*
+
+### ¿Por qué no veo un menú que otra persona sí ve?
+
+Por una de dos razones: tu rol no tiene permiso sobre ese módulo, o el módulo depende del marco de la certificación activa. Hay menús que sólo aparecen con ciertos marcos, como los de privacidad o de gobernanza de IA, y al cambiar de certificación en la barra superior el menú se ajusta solo.
+
+Si la otra persona tiene la misma certificación activa, la diferencia es de permisos: pídele a quien administra la organización que revise tu rol.
+
+### ¿El organigrama y la ficha de la organización hay que cargarlos para cada certificación?
+
+No. Son de la organización, no de una certificación, y valen para todos los marcos: las personas, áreas, comités y la matriz RACI se cargan una vez y los reutilizan el setup, los documentos, las lecturas y las propuestas. El Dashboard, en cambio, siempre muestra la certificación activa.
+
+El responsable que figura en la ficha se toma del organigrama, y los documentos del setup lo usan como autor, así que conviene tenerlo al día antes de generar documentos.
+
+*Dónde se hace: Organización.*
+
+### ¿Qué pasa si activo o desactivo un marco en la organización?
+
+Al activar un marco, sus módulos aparecen en el menú y en el selector de marco de todas las personas de la organización. Al desactivarlo no se borran datos: los módulos se ocultan y, si tenía certificación, ésta queda archivada y se puede reactivar más tarde.
+
+Lo hacen el superadministrador o el oficial de cumplimiento desde Frameworks de la organización. Algunos marcos piden datos al activarse, como designar al delegado de protección de datos y definir el alcance.
+
+*Dónde se hace: Frameworks de la organización.*
+
+### ¿Qué es el modelo de líneas de gobierno y quién lo aprueba?
+
+Es la declaración, hecha una sola vez por la organización, de quién aprueba (Alta Dirección), quién ejecuta (1ª línea), quién supervisa (2ª línea) y quién audita con independencia (3ª línea). «Pedir propuesta a Vigía» la arma desde cargos, roles, la matriz RACI y los dueños de control, citando el motivo de cada propuesta y sin IA generativa; aplicarla o descartarla le corresponde a la administración o a la Dirección, y nadie puede aplicar una franja sobre sí mismo.
+
+La prueba de independencia revisa, por ejemplo, que la 3ª línea no audite su propio trabajo; un chequeo que no se pudo evaluar se muestra en ámbar y nunca como cumplido. Cuando el modelo cambia, la plataforma lista los documentos que hay que regenerar.
+
+*Dónde se hace: Organigrama.*
+
+### ¿Qué muestra el Registro de Auditoría de la plataforma?
+
+Quién hizo qué en Vigia y cuándo, principalmente los cambios sobre controles y su evidencia, con filtro por rango de fechas y «Exportar CSV». Es de solo lectura y refleja la actividad dentro de la plataforma, no la de la infraestructura de la organización, que se respalda con sus propios registros.
+
+Si ves «No pudimos consultar el registro de auditoría», la consulta falló y puede haber registros: reintenta. «No hay registros en este rango de fechas» sí significa que no los hay en ese rango.
+
+*Dónde se hace: Registro de Auditoría.*
+
+### ¿Por qué a veces no me piden el código de verificación al entrar?
+
+Porque entraste desde un dispositivo conocido. Después de tu cuarta entrada con código desde un mismo navegador, Vigia te ofrece registrarlo con un nombre; mientras el registro esté vigente, desde ese navegador se pide sólo la contraseña. Al vencer se pide el código una vez y se ofrece renovarlo. Si alguien más usa ese equipo, mejor no lo registres.
+
+Tus dispositivos aparecen en «Editar mi Perfil» con navegador, sistema operativo y último uso, y puedes renombrarlos o eliminarlos. Cambiar o restablecer tu contraseña, desactivar tu verificación en dos pasos o que un administrador la restablezca los elimina todos; cambiar tu autenticador a otro teléfono no los toca. Quien administra la organización puede desactivarlos o ajustar cuántos días duran en Configuración de Acceso.
+
+*Dónde se hace: Configuración de Acceso.*
+
+### ¿Por qué veo Administración del Sistema pero no todas sus opciones?
+
+Porque cada opción tiene su propia puerta y el menú sólo te muestra las que tu rol permite abrir. Accesos y Roles, donde se asignan los roles a los usuarios, es exclusivo del superadministrador; Organización y Organigrama dependen de los permisos de tu rol: quien puede editar la ficha de la organización o el organigrama entra a esas dos pantallas aunque no administre usuarios. Al entrar a la sección se abre Organización.
+
+Autonomía de Agentes y el Registro de Auditoría no cuelgan de Administración del Sistema: son ítems aparte del mismo grupo. Autonomía de Agentes la ven la dirección, el CISO, el oficial de cumplimiento y el super administrador; el Registro de Auditoría lo ven además los roles de cumplimiento y auditoría, aunque no administren usuarios. Si necesitas una opción que no ves, pídele a un superadministrador que revise tu rol.
+
+*Dónde se hace: Administración del Sistema.*
+
+### ¿Qué pasa cuando se confirma una equivalencia entre requisitos de dos marcos?
+
+Queda activa para todas las organizaciones: permite que la evidencia de un requisito sirva para el otro, pero nunca copia el estado de un control de un marco a otro. Por eso esta pantalla sólo la ve el operador de la plataforma; las organizaciones usan el catálogo ya confirmado y no pueden cambiarlo.
+
+Wigi compara por lotes los requisitos de un par de marcos y deja propuestas; una persona las confirma o descarta, una a una o en bloque. Lo descartado no se vuelve a proponer, y lo confirmado o descartado queda de sólo lectura. Si no se pudieron leer los pares o la lista, la pantalla lo dice y ofrece Reintentar en vez de mostrar una lista vacía.
+
+*Dónde se hace: Equivalencias entre marcos.*
