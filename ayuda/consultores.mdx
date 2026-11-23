@@ -1,0 +1,80 @@
+---
+title: "Para consultores"
+description: "Preguntas de quien implementa Vigia para una organización cliente."
+---
+
+{/* Generado por vigia-console/scripts/help-to-mintlify.mjs desde la ayuda de la consola. No editar a mano. */}
+
+Preguntas de quien conduce la implementación para una organización cliente: qué puedes hacer y qué le corresponde decidir al cliente.
+
+## Primeros pasos
+
+### ¿Puedo usar la misma cuenta para trabajar con varios clientes?
+
+No. Cada cuenta pertenece a una sola organización y cada correo existe una sola vez en la plataforma, así que si atiendes a tres clientes necesitas tres cuentas, con un correo distinto para cada una.
+
+Tampoco compartas una cuenta entre varias personas: el registro de auditoría guarda quién hizo qué, y esa traza sólo sirve si cada persona entra con la suya.
+
+### ¿Puedo firmar o aprobar en nombre del cliente?
+
+No. Con el rol Implementador conduces el trabajo y firmas como quien elabora, pero revisar y aprobar corresponden a personas del cliente. Esa separación es la que sostiene el sistema de gestión ante un auditor, porque los compromisos los asume la dirección del cliente.
+
+El rol tampoco permite invitar personas ni asignar roles, decidir el tratamiento de un riesgo, aceptar riesgos ni cerrar incidentes. Si al aprobar o firmar aparece un error de permiso, pídele esa decisión a la persona responsable del cliente.
+
+### ¿Por dónde empiezo con un cliente nuevo?
+
+Antes de abrir el Setup, deja resuelto quién es quién. Confirma que cada persona tiene su propia cuenta y su rol, revisa que la certificación activa sea la correcta, pide al administrador del cliente que cargue el organigrama con los responsables reales e identifica quién revisa y quién aprueba cada documento.
+
+Con eso listo, abre el Setup, completa el contexto de la organización y haz una lista de los sistemas del cliente que se pueden conectar. Los documentos toman del organigrama a los responsables y a los firmantes, así que esa primera sesión ahorra correcciones después.
+
+*Dónde se hace: Setup Certificación.*
+
+## Evidencias y conectores
+
+### ¿Cómo sé si existe un conector para un sistema del cliente?
+
+Búscalo en el Catálogo de conectores de Automatización de Evidencias, que reúne nube, identidad, personas, dispositivos, código, tickets y observabilidad, entre otras categorías. Revísalo antes de asumir que un sistema no está.
+
+Las credenciales son de los sistemas del cliente, así que acuerda con él quién las crea. Declara sólo el alcance que entra en la certificación, lanza una primera ejecución y deja una programación para que la evidencia no envejezca.
+
+*Aplica a: ISO 27001, ISO 27701, ISO 42001, SOC 2, NIST AI RMF, PCI DSS.* *Dónde se hace: Catálogo de conectores.*
+
+## Riesgos, activos y proveedores
+
+### ¿Puedo aprobar un tratamiento o aceptar un riesgo en nombre del cliente?
+
+No. Como implementador preparas el tratamiento (opción, estrategia y riesgo residual esperado) y la solicitud de aceptación con su justificación de negocio, pero aprobar o rechazar el tratamiento y la aceptación lo decide una persona del cliente. Si lo intentas, verás un error de permiso.
+
+Ningún riesgo queda aceptado por una propuesta de IA ni por el implementador: esa traza es la que revisa el auditor. En la pestaña Aceptaciones de Tratamiento de Riesgos el selector ofrece los riesgos de nivel Alto o Crítico que no tienen una solicitud abierta.
+
+*Dónde se hace: Tratamiento de Riesgos.*
+
+## Políticas y documentos
+
+### ¿Puedo aprobar, firmar o publicar una política por el cliente?
+
+No. Como implementador redactas, asocias controles, asignas revisores, aprobadores y firmantes y preparas la difusión; revisar, aprobar, publicar y firmar como revisor o aprobador le corresponde al cliente. Hoy la pantalla puede mostrarte algunos botones de decisión, como «Aprobar» o «Publicar», pero al usarlos responde que esa acción le corresponde a la organización.
+
+Tú sólo firmas como quien elabora. Si te asignaron como revisor o aprobador, reasigna ese papel a una persona del cliente. La política general exige además un aprobador de la alta dirección, que sale del organigrama.
+
+*Dónde se hace: Políticas y Procedimientos.*
+
+## Tareas y seguimiento
+
+### ¿Por qué el responsable del cliente no ve una tarea que yo sí veo?
+
+Porque tu rol ve todas las tareas de la organización y el suyo puede mostrar sólo su bandeja. Lo que ves en el tablero no siempre es lo que ve cada persona.
+
+Revisa a quién está asignada la tarea. Acuerda también con el cliente cómo se enteran sus responsables del trabajo nuevo: la plataforma avisa de las tareas vencidas, pero no confíes en un aviso al momento de asignar.
+
+*Dónde se hace: Tablero Kanban.*
+
+## Auditorías y Trust Center
+
+### ¿Puedo ejecutar la auditoría interna si yo implementé el sistema?
+
+No: quien construyó el sistema no lo evalúa. Tú puedes planificarla en cuatro pasos (Información General, Alcance y Criterios, Equipo Auditor y Confirmación) y comentar los hallazgos, pero iniciarla, ejecutarla y registrar hallazgos le corresponde al auditor interno o a una persona del cliente.
+
+El auditor líder es obligatorio para completar la planificación. La plataforma recomienda la independencia, pero no comprueba que el auditor líder no haya trabajado en lo que audita: acuérdalo con el cliente y deja constancia.
+
+*Dónde se hace: Planificación de Auditoría Interna.*

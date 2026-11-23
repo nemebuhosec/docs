@@ -11,6 +11,30 @@
   "navigation": {
     "tabs": [
       {
+        "tab": "Ayuda",
+        "groups": [
+          {
+            "group": "Primeros pasos",
+            "pages": [
+              "ayuda/primeros-pasos-founders"
+            ]
+          },
+          {
+            "group": "Preguntas frecuentes",
+            "pages": [
+              "ayuda/preguntas-frecuentes",
+              "ayuda/consultores"
+            ]
+          },
+          {
+            "group": "Referencia",
+            "pages": [
+              "ayuda/glosario"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Guides",
         "groups": [
           {
@@ -102,15 +126,15 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
